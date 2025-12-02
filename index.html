@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title and Meta Description will be updated by JS if needed, but set defaults -->
+  <title id="app-title-tag">تعلم الأحرف العربية مع الحركات | تطبيق تفاعلي مجاني</title>
+  <meta name="description" id="app-meta-description" content="تعلم الأحرف العربية مع الحركات عبر تطبيق تفاعلي مجاني! ألعاب تعليمية للأطفال والمبتدئين لتطوير مهارات اللغة العربية.">
+
+  <!-- Other Meta Tags -->
+  <meta name="keywords" content="تعلم العربية, الأحرف العربية, الحركات, ألعاب تعليمية, تعليم الأطفال, تعلم اللغة العربية, تطبيق تعليمي, تعليم تفاعلي, تعلم الحروف العربية, الأحرف العربية مع الحركات, تطبيقات تعليمية مجانية, ألعاب تعليم الحروف العربية للأطفال, تعلم العربية بسهولة, تعليم الحروف بالعربية للصغار, أدوات تعليمية عربية, تطبيق تفاعلي لتعليم الحركات">
+  <meta name="author" content="Yacine LOTFI">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yacinelotfi199.github.io/arabic-letters-game/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="تعلم الأحرف العربية مع الحركات | تطبيق تفاعلي">
+  <meta property="og:description" content="جرب تطبيقًا تفاعليًا مجانيًا لتعليم الأحرف العربية مع ألعاب ممتعة للأطفال والمبتدئين.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yacinelotfi199.github.io/arabic-letters-game/">
+  <meta property="og:image" content="https://yacinelotfi199.github.io/arabic-letters-game/images/preview.jpg"> <!-- Ensure this image path is correct -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="تعلم الأحرف العربية مع الحركات">
+  <meta name="twitter:description" content="تطبيق تعليمي ممتع لتعليم الأحرف العربية مع الحركات والألعاب.">
+  <meta name="twitter:image" content="https://yacinelotfi199.github.io/arabic-letters-game/images/preview.jpg"> <!-- Ensure this image path is correct -->
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalApplication",
+      "name": "تعلم الأحرف العربية مع الحركات",
+      "description": "تطبيق تعليمي تفاعلي لتعليم الأحرف العربية مع الحركات والألعاب للأطفال والمبتدئين.",
+      "url": "https://yacinelotfi199.github.io/arabic-letters-game/",
+      "author": {"@type": "Person", "name": "Yacine LOTFI"},
+      "inLanguage": "ar",
+      "learningResourceType": "Interactive Tool",
+      "typicalAgeRange": "3-12"
+    }
+  </script>
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wiW5oaDSLFkIl92vHokAbsTxTApya4HLb++fV3w9AUJalJUpE4MOBvDBcHsdrFvnkR7Kc6JSt3LcvNQ==" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> <!-- Link to your custom CSS -->
+  <link rel="stylesheet" href="css/animations.css"> <!-- Link to animations CSS -->
+</head>
+<body class="py-4">
+
+<!-- Skip Link for Accessibility -->
+<a href="#main-content" class="visually-hidden-focusable">تخطى إلى المحتوى الرئيسي</a>
+
+<header class="container text-center mb-4">
+  <!-- Language Switcher -->
+  <div class="language-switcher mb-3">
+    <button class="btn btn-sm btn-secondary lang-btn" onclick="switchLanguage('en')" aria-label="Switch to English">English</button>
+    <button class="btn btn-sm btn-secondary lang-btn" onclick="switchLanguage('ar')" aria-label="Switch to Arabic">العربية</button>
+  </div>
+
+  <!-- App Title and Description -->
+  <h1 class="animate__animated animate__fadeInDown" id="app-title">تعلم الأحرف العربية مع الحركات</h1>
+  <p class="lead" id="app-description">ابدأ الآن بتعلم الأحرف العربية بطريقة ممتعة وتفاعلية!</p>
+
+  <!-- Tutorial Button -->
+  <button class="btn btn-info mb-3" onclick="startTutorial()" aria-label="ابدأ الدليل التعليمي">
+    دليل الاستخدام
+  </button>
+</header>
+
+<!-- Progress Bar -->
+<div class="container mb-4">
+  <div class="progress shadow-sm" style="height: 25px;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0% Complete">
+    <div id="progress" class="progress-bar progress-bar-striped bg-success" style="width: 0%">0%</div>
+  </div>
+</div>
+
+<main id="main-content" class="container">
+  <!-- Main Controls -->
+  <section class="text-center mb-4">
+    <h2>استكشف الأحرف العربية مع الحركات</h2>
+    <p>تعلم الحروف العربية بسهولة من خلال ألعاب تعليمية ممتعة مع هذا التطبيق التفاعلي المجاني. مثالي للأطفال والمبتدئين!</p>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+      <button class="btn btn-secondary" onclick="resetProgress()">إعادة التقدم</button>
+      <button class="btn btn-primary" onclick="speakIntro()" aria-label="استمع للمقدمة">استمع للمقدمة</button>
+      <button class="btn btn-toggle-speech" id="toggleSpeechBtn" onclick="toggleSpeech()" aria-pressed="true">تعطيل الصوت</button>
+      <button class="btn btn-info" onclick="showGlobalQuiz()" aria-label="ابدأ الاختبار العام">اختبار عام</button>
+      <button class="btn btn-primary" onclick="shareSite()">شارك التطبيق</button>
+    </div>
+  </section>
+
+  <!-- Letter Grid -->
+  <section>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 justify-content-center" id="lettersContainer">
+      <!-- Letter cards will be generated here by JavaScript -->
+      <div class="text-center p-4"><p>جارٍ تحميل الأحرف...</p><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>
+    </div>
+  </section>
+</main>
+
+<!-- Modals -->
+
+<!-- Harakat Selection Modal -->
+<div class="modal fade" id="harakatModal" tabindex="-1" aria-labelledby="harakatModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h2 class="modal-title fs-5" id="harakatModalLabel">اختر الحركة</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div id="selectedLetter" class="haraka-display text-primary mb-3" aria-live="polite"></div>
+        <button class="btn btn-secondary btn-sm mb-4" onclick="speakSelectedLetter()">استمع للحرف</button>
+
+        <!-- Harakat Buttons -->
+        <div class="row g-2 mb-3">
+          <div class="col-4"><button class="btn btn-success haraka-btn w-100" data-bs-toggle="tooltip" title="فتحة" onclick="applyHaraka('َ')" aria-label="فتحة">فَتْحَة</button></div>
+          <div class="col-4"><button class="btn btn-success haraka-btn w-100" data-bs-toggle="tooltip" title="ضمة" onclick="applyHaraka('ُ')" aria-label="ضمة">ضَمَّة</button></div>
+          <div class="col-4"><button class="btn btn-success haraka-btn w-100" data-bs-toggle="tooltip" title="كسرة" onclick="applyHaraka('ِ')" aria-label="كسرة">كَسْرَة</button></div>
+          <div class="col-4"><button class="btn btn-info haraka-btn w-100" data-bs-toggle="tooltip" title="تنوين فتح" onclick="applyTanween('ً')" aria-label="تنوين فتح">تَنْوِين فَتْح</button></div>
+          <div class="col-4"><button class="btn btn-info haraka-btn w-100" data-bs-toggle="tooltip" title="تنوين ضم" onclick="applyTanween('ٌ')" aria-label="تنوين ضم">تَنْوِين ضَم</button></div>
+          <div class="col-4"><button class="btn btn-info haraka-btn w-100" data-bs-toggle="tooltip" title="تنوين كسر" onclick="applyTanween('ٍ')" aria-label="تنوين كسر">تَنْوِين كَسْر</button></div>
+          <div class="col-4"><button class="btn btn-warning haraka-btn w-100" data-bs-toggle="tooltip" title="ألف مد" onclick="applyLongHaraka('ا')" aria-label="ألف مد">أَلِف مَد</button></div>
+          <div class="col-4"><button class="btn btn-warning haraka-btn w-100" data-bs-toggle="tooltip" title="واو مد" onclick="applyLongHaraka('و')" aria-label="واو مد">وَاو مَد</button></div>
+          <div class="col-4"><button class="btn btn-warning haraka-btn w-100" data-bs-toggle="tooltip" title="ياء مد" onclick="applyLongHaraka('ي')" aria-label="ياء مد">يَاء مَد</button></div>
+        </div>
+      </div>
+      <!-- Activity Buttons -->
+      <div class="modal-footer d-flex flex-wrap justify-content-center gap-2">
+        <button class="btn btn-purple btn-sm" onclick="showWords()">عرض الكلمات</button>
+        <button class="btn btn-purple btn-sm" onclick="showPhrases()">عرض الجمل</button>
+        <button class="btn btn-warning btn-sm" onclick="showWritingGame()">لعبة الترتيب</button>
+        <button class="btn btn-info btn-sm" onclick="showGuessGame()">لعبة تخمين الحرف</button>
+        <button class="btn btn-success btn-sm" onclick="showWritingPractice()">لعبة الكتابة</button>
+        <button class="btn btn-purple btn-sm" onclick="showMovingLetterGame()">الحرف المتحرك</button>
+        <button class="btn btn-info btn-sm" onclick="showWordHunterGame()">صائد الكلمات</button>
+        <button class="btn btn-success btn-sm" onclick="showMissingSyllableGame()">المقطع الناقص</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Words Modal -->
+<div class="modal fade" id="wordsModal" tabindex="-1" aria-labelledby="wordsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h2 class="modal-title fs-5" id="wordsModalLabel">كلمات تحتوي على <span id="currentWordLetter"></span></h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 id="currentWord" class="display-5 mb-3 animate__animated" aria-live="polite"></h3>
+        <div id="wordImageContainer" class="mb-3" style="min-height: 150px;" aria-live="polite">
+          <!-- Image or loading indicator here -->
+        </div>
+        <div class="d-flex justify-content-center gap-2 mb-3">
+          <button class="btn btn-secondary btn-sm" onclick="playCurrentWord()">تشغيل النطق</button>
+          <button class="btn btn-toggle-image btn-sm" id="toggleImageBtn" onclick="toggleWordImage()">إخفاء الصورة</button>
+        </div>
+        <div class="word-counter mb-3" id="wordCounter"></div>
+        <div class="navigation-buttons d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousWord()" id="prevBtn">السابق</button>
+          <button class="btn btn-primary btn-sm" onclick="nextWord()" id="nextBtn">التالي</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">رجوع</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Phrases Modal -->
+<div class="modal fade" id="phrasesModal" tabindex="-1" aria-labelledby="phrasesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white"> <!-- Changed to match words modal header -->
+        <h2 class="modal-title fs-5" id="phrasesModalLabel">جمل تحتوي على <span id="currentPhraseLetter"></span></h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 id="currentPhrase" class="display-6 mb-4 animate__animated" aria-live="polite"></h3> <!-- Adjusted size -->
+        <button class="btn btn-secondary btn-sm mb-3" onclick="playCurrentPhrase()">تشغيل النطق</button>
+        <div class="phrase-counter mb-3" id="phraseCounter"></div>
+        <div class="navigation-buttons d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousPhrase()" id="phrasePrevBtn">السابق</button>
+          <button class="btn btn-primary btn-sm" onclick="nextPhrase()" id="phraseNextBtn">التالي</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">رجوع</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Writing Game (Arrangement) Modal -->
+<div class="modal fade" id="writingModal" tabindex="-1" aria-labelledby="writingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h2 class="modal-title fs-5" id="writingModalLabel">رتب الحروف لتصنع كلمة تحتوي على <span id="gameWordLetter"></span></h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="scrambled-letters mb-3" id="scrambledLetters" style="min-height: 60px;">
+          <!-- Scrambled letter tiles here -->
+        </div>
+        <div class="selected-letters border p-3 rounded mb-3 bg-light" id="selectedLetters" style="min-height: 60px; direction: rtl;">
+          <!-- Selected letter tiles here -->
+        </div>
+        <div class="check-buttons d-flex justify-content-center gap-2 mb-3">
+          <button class="btn btn-success btn-sm" onclick="checkArrangement()">تحقق</button>
+          <button class="btn btn-warning btn-sm" onclick="resetLetters()">إعادة</button>
+          <button class="btn btn-info btn-sm" onclick="showHint()">مساعدة</button>
+        </div>
+        <div class="feedback-message mt-2 small" id="writingGameFeedback" aria-live="polite"></div> <!-- Added ID -->
+        <div class="game-word-counter mt-2" id="gameWordCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousGameWord()" id="gamePrevBtn">السابق</button>
+          <button class="btn btn-primary btn-sm" onclick="nextGameWord()" id="gameNextBtn">التالي</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">رجوع</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Guess Letter Modal -->
+<div class="modal fade" id="guessLetterModal" tabindex="-1" aria-labelledby="guessLetterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-warning text-dark"> <!-- Changed text color for contrast -->
+        <h2 class="modal-title fs-5" id="guessLetterModalLabel">خمن الحرف</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <button class="btn btn-primary btn-sm mb-4" onclick="playGuessSound()" id="playGuessSoundBtn">استمع للصوت</button> <!-- Added ID -->
+        <div class="guess-options d-flex flex-wrap justify-content-center gap-2 mb-3" id="guessOptions" style="min-height: 60px;">
+          <!-- Guess options here -->
+        </div>
+        <div class="guess-feedback mt-2 small" id="guessFeedback" aria-live="polite"></div>
+        <div class="guess-counter mt-2" id="guessCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousGuess()" id="guessPrevBtn">السابق</button>
+          <button class="btn btn-primary btn-sm" onclick="nextGuess()" id="guessNextBtn">التالي</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">رجوع</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Writing Practice Modal -->
+<div class="modal fade" id="writingPracticeModal" tabindex="-1" aria-labelledby="writingPracticeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h2 class="modal-title fs-5" id="writingPracticeModalLabel">اكتب الحرف</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 id="targetLetter" class="display-5 mb-4"></h3>
+        <input type="text" id="userInput" class="form-control form-control-lg mb-3 w-50 mx-auto" placeholder="اكتب الحرف هنا" dir="rtl" lang="ar" maxlength="3" autocomplete="off" spellcheck="false"> <!-- Adjusted size, added lang -->
+        <button class="btn btn-primary btn-sm mb-3" onclick="checkWriting()">تحقق</button>
+        <div class="writing-feedback mt-2 small" id="writingFeedback" aria-live="polite"></div>
+        <div class="writing-counter mt-2" id="writingCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousWriting()" id="writingPrevBtn">السابق</button>
+          <button class="btn btn-primary btn-sm" onclick="nextWriting()" id="writingNextBtn">التالي</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">رجوع</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Moving Letter Modal -->
+<div class="modal fade" id="movingLetterModal" tabindex="-1" aria-labelledby="movingLetterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-purple text-white">
+        <h2 class="modal-title fs-5" id="movingLetterModalLabel">الحرف المتحرك</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <!-- Display area for the base letter (optional) -->
+        <div class="harakat-display mb-4 fs-4" id="harakatList"></div>
+        <!-- Container for the moving letter -->
+        <div class="moving-letter-container mb-4 border rounded p-3" style="min-height: 80px;">
+          <span id="movingLetter" class="moving-letter display-4"></span>
+        </div>
+        <!-- Letter Selection Dropdown -->
+        <select id="letterSelect" class="form-select form-select-lg mb-3 w-50 mx-auto" dir="rtl" lang="ar">
+          <option value="" disabled>اختر حرفًا</option>
+          <!-- Options populated by JS -->
+        </select>
+        <!-- Control Buttons -->
+        <div class="d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="startMovingLetter()">ابدأ الحركة</button>
+          <button class="btn btn-warning btn-sm" onclick="stopMovingLetter()">إيقاف</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">رجوع</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Word Hunter Modal -->
+<div class="modal fade" id="wordHunterModal" tabindex="-1" aria-labelledby="wordHunterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h2 class="modal-title fs-5" id="wordHunterModalLabel">صائد الكلمات</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 class="fs-5 mb-2">اختر الكلمات التي تحتوي على الحرف: <span id="hunterTargetLetter" class="fw-bold display-6"></span></h3>
+        <div class="hunter-timer mt-2 mb-3 fw-bold" id="hunterTimer">الوقت المتبقي: 30 ثانية</div>
+        <div class="word-options d-flex flex-wrap justify-content-center gap-2 mb-3" id="wordOptions" style="min-height: 100px;">
+          <!-- Word options here -->
+        </div>
+        <div class="hunter-feedback mt-2 small" id="hunterFeedback" aria-live="polite"></div>
+        <div class="hunter-score mt-2 fw-bold" id="hunterScore">الدرجة: 0</div>
+        <!-- Removed the redundant check button as logic checks on click -->
+        <!-- <button class="btn btn-primary btn-sm mt-3" onclick="checkHunterSelection()">تحقق</button> -->
+        <button class="btn btn-warning btn-sm mt-3" onclick="resetHunterGame()">إعادة</button>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">رجوع</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Missing Syllable Modal -->
+<div class="modal fade" id="missingSyllableModal" tabindex="-1" aria-labelledby="missingSyllableModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h2 class="modal-title fs-5" id="missingSyllableModalLabel">المقطع الناقص</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 class="fs-5 mb-3">أكمل الكلمة التي تبدأ بالحرف: <span id="missingSyllableLetter" class="fw-bold display-6"></span></h3>
+        <div id="incompleteWord" class="display-5 mb-4" aria-live="polite" style="direction: rtl; min-height: 60px;">
+          <!-- Incomplete word here -->
+        </div>
+        <div class="syllable-options d-flex flex-wrap justify-content-center gap-2 mb-3" id="syllableOptions" style="min-height: 60px;">
+          <!-- Syllable options here -->
+        </div>
+        <div class="syllable-feedback mt-2 small" id="syllableFeedback" aria-live="polite"></div>
+        <div class="syllable-counter mt-2" id="syllableCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousSyllable()" id="syllablePrevBtn">السابق</button>
+          <button class="btn btn-primary btn-sm" onclick="nextSyllable()" id="syllableNextBtn">التالي</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">رجوع</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Global Quiz Modal -->
+<div class="modal fade" id="globalQuizModal" tabindex="-1" aria-labelledby="globalQuizModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-purple text-white">
+        <h2 class="modal-title fs-5" id="globalQuizModalLabel">اختبار عام</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 id="quizQuestion" class="mb-3 quiz-question-display" aria-live="polite"></h3> <!-- Class added by JS -->
+        <button class="btn btn-primary btn-sm mb-4" onclick="playQuizSound()">استمع للصوت</button>
+        <div class="quiz-options d-flex flex-wrap justify-content-center gap-2 mb-3" id="quizOptions" style="min-height: 100px;">
+          <!-- Quiz options here -->
+        </div>
+        <div class="quiz-feedback mt-2 small" id="quizFeedback" aria-live="polite"></div>
+        <div class="quiz-score mt-2 fw-bold" id="quizScore">الدرجة: 0</div>
+        <div class="quiz-counter mt-2" id="quizCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousQuizQuestion()" id="quizPrevBtn">السابق</button>
+          <button class="btn btn-primary btn-sm" onclick="nextQuizQuestion()" id="quizNextBtn">التالي</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-warning btn-sm" onclick="resetQuiz()">إعادة الاختبار</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Audio Player -->
+<audio id="audioPlayer" preload="auto"></audio> <!-- Added preload -->
+
+<!-- Footer -->
+<footer class="text-center mt-5 py-3">
+  <p>تم التطوير بواسطة ياسين لطفي - Yacine LOTFI</p>
+  <p><a href="https://www.facebook.com/yacinelotfi199/" target="_blank" rel="noopener noreferrer">تواصل معي على فيسبوك</a></p>
+  <p>اكتشف أدوات تعليمية عربية مجانية لتعليم الحروف بالعربية للصغار!</p>
+</footer>
+
+<!-- Achievement Toast Container -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="achievementToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-white">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-trophy' viewBox='0 0 16 16'%3E%3Cpath d='M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935zM3.504 1c.007.517.026 1.006.056 1.469.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.501.501 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667.03-.463.049-.952.056-1.469H3.504z'/%3E%3C/svg%3E" class="rounded me-2" alt="Trophy">
+      <strong class="me-auto" id="achievementTitle">إنجاز جديد!</strong>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body bg-light" id="achievementMessage">
+      أحسنت! لقد أكملت مهمة جديدة.
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<!-- DOMPurify included but not actively used by current JS - good for future safety -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+<!-- Web Share Shim for broader share compatibility -->
+<script src="https://cdn.jsdelivr.net/npm/web-share-shim@0.2.0/dist/web-share-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+
+<!-- Your Custom JavaScript -->
+<script src="js/app.js"></script>
+<script src="js/pexels.js"></script>
+<script src="js/visual-effects.js"></script>
+
+</body>
+</html>

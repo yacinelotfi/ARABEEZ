@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Image Generation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .image-container {
+      min-height: 300px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .saved-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .saved-image-card {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      text-align: center;
+    }
+    .saved-image-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body class="container py-5">
+<h1 class="mb-4 text-center">Test Image Generation</h1>
+<p class="lead text-center">This page tests the image generation functionality when the Pexels API doesn't respond.</p>
+
+<div class="row mb-4">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h2 class="h5 mb-0">Generate Image for Word</h2>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="wordInput" class="form-label">Enter a word:</label>
+          <input type="text" id="wordInput" class="form-control" placeholder="e.g., cat, tree, house">
+        </div>
+        <div class="d-grid gap-2">
+          <button id="generateBtn" class="btn btn-primary">Generate Image</button>
+          <button id="simulateFailBtn" class="btn btn-warning">Simulate API Failure</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header bg-secondary text-white">
+        <h2 class="h5 mb-0">Generated Image</h2>
+      </div>
+      <div class="card-body">
+        <div id="imageContainer" class="image-container">
+          <p class="text-muted">Generated image will appear here</p>
+        </div>
+        <div id="imageInfo" class="small text-muted"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header bg-info text-white">
+        <h2 class="h5 mb-0">Saved Images</h2>
+      </div>
+      <div class="card-body">
+        <p>Images saved in localStorage and IndexedDB:</p>
+        <div id="savedImages" class="saved-images">
+          <p class="text-muted">No saved images found</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/pexels.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const wordInput = document.getElementById('wordInput');
+    const generateBtn = document.getElementById('generateBtn');
+    const simulateFailBtn = document.getElementById('simulateFailBtn');
+    const imageContainer = document.getElementById('imageContainer');
+    const imageInfo = document.getElementById('imageInfo');
+    const savedImagesContainer = document.getElementById('savedImages');
+
+    // Check if a word parameter is provided in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const wordParam = urlParams.get('word');
+
+    if (wordParam) {
+      // If a word parameter is provided, set it as the input value and generate an image
+      wordInput.value = wordParam;
+      generateImageForWord(wordParam);
+    }
+
+    // Load saved images from localStorage
+    loadSavedImages();
+
+    // Generate image button click handler
+    generateBtn.addEventListener('click', function() {
+      const word = wordInput.value.trim();
+      if (!word) {
+        alert('Please enter a word');
+        return;
+      }
+
+      // Show loading indicator
+      imageContainer.innerHTML = `
+                    <div class="text-center">
+                        <p>Loading image for "${word}"...</p>
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                `;
+
+      // Use the Pexels API to fetch an image
+      fetchPexelsImages(word)
+        .then(images => {
+          if (images && images.length > 0) {
+            const image = images[0];
+
+            // Display the image
+            imageContainer.innerHTML = '';
+            const img = document.createElement('img');
+            img.src = image.dataUrl || image.src.medium;
+            img.alt = image.alt || `Image of ${word}`;
+            img.className = 'img-fluid';
+            imageContainer.appendChild(img);
+
+            // Display image info
+            imageInfo.innerHTML = `
+                                <p>Source: ${image.isGenerated ? 'Generated locally' : 'Pexels API'}</p>
+                                <p>ID: ${image.id}</p>
+                                ${image.photographer ? `<p>Photographer: ${image.photographer}</p>` : ''}
+                            `;
+
+            // Reload saved images
+            loadSavedImages();
+          } else {
+            imageContainer.innerHTML = '<p class="text-danger">No images found</p>';
+            imageInfo.innerHTML = '';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching image:', error);
+          imageContainer.innerHTML = `<p class="text-danger">Error: ${error.message}</p>`;
+          imageInfo.innerHTML = '';
+        });
+    });
+
+    // Simulate API failure button click handler
+    simulateFailBtn.addEventListener('click', function() {
+      const word = wordInput.value.trim();
+      if (!word) {
+        alert('Please enter a word');
+        return;
+      }
+
+      // Show loading indicator
+      imageContainer.innerHTML = `
+                    <div class="text-center">
+                        <p>Simulating API failure for "${word}"...</p>
+                        <div class="spinner-border text-warning" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                `;
+
+      // Directly call generateWordImage to simulate API failure
+      generateWordImage(word)
+        .then(images => {
+          if (images && images.length > 0) {
+            const image = images[0];
+
+            // Display the image
+            imageContainer.innerHTML = '';
+            const img = document.createElement('img');
+            img.src = image.dataUrl;
+            img.alt = image.alt;
+            img.className = 'img-fluid';
+            imageContainer.appendChild(img);
+
+            // Display image info
+            imageInfo.innerHTML = `
+                                <p>Source: Generated locally (API failure simulation)</p>
+                                <p>ID: ${image.id}</p>
+                                <p>Path: ${image.src.medium}</p>
+                            `;
+
+            // Reload saved images
+            loadSavedImages();
+          } else {
+            imageContainer.innerHTML = '<p class="text-danger">Failed to generate image</p>';
+            imageInfo.innerHTML = '';
+          }
+        })
+        .catch(error => {
+          console.error('Error generating image:', error);
+          imageContainer.innerHTML = `<p class="text-danger">Error: ${error.message}</p>`;
+          imageInfo.innerHTML = '';
+        });
+    });
+
+    // Function to generate an image for a word
+    function generateImageForWord(word) {
+      if (!word) {
+        return Promise.resolve(null);
+      }
+
+      // Show loading indicator
+      imageContainer.innerHTML = `
+                    <div class="text-center">
+                        <p>Loading image for "${word}"...</p>
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                `;
+
+      // Use the Pexels API to fetch an image
+      return fetchPexelsImages(word)
+        .then(images => {
+          if (images && images.length > 0) {
+            const image = images[0];
+
+            // Display the image
+            imageContainer.innerHTML = '';
+            const img = document.createElement('img');
+            img.src = image.dataUrl || image.src.medium;
+            img.alt = image.alt || `Image of ${word}`;
+            img.className = 'img-fluid';
+            imageContainer.appendChild(img);
+
+            // Display image info
+            imageInfo.innerHTML = `
+                                <p>Source: ${image.isGenerated ? 'Generated locally' : 'Pexels API'}</p>
+                                <p>ID: ${image.id}</p>
+                                ${image.photographer ? `<p>Photographer: ${image.photographer}</p>` : ''}
+                            `;
+
+            // Reload saved images
+            loadSavedImages();
+
+            // Send a message to the parent window with the image data
+            if (window.parent && window.parent !== window) {
+              console.log(`Sending image data for "${word}" to parent window`);
+              try {
+                window.parent.postMessage({
+                  type: 'image_generated',
+                  word: word,
+                  dataUrl: image.dataUrl || image.src.medium
+                }, '*');
+              } catch (error) {
+                console.error('Error sending message to parent window:', error);
+              }
+            }
+
+            // Return the image data for potential use by the parent window
+            return image;
+          } else {
+            imageContainer.innerHTML = '<p class="text-danger">No images found</p>';
+            imageInfo.innerHTML = '';
+            return null;
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching image:', error);
+          imageContainer.innerHTML = `<p class="text-danger">Error: ${error.message}</p>`;
+          imageInfo.innerHTML = '';
+          return null;
+        });
+    }
+
+    // Function to load saved images from localStorage
+    function loadSavedImages() {
+      const savedImages = [];
+
+      // Get all keys from localStorage
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith('generated_image_')) {
+          try {
+            const imageData = JSON.parse(localStorage.getItem(key));
+            savedImages.push(imageData);
+          } catch (error) {
+            console.error('Error parsing saved image:', error);
+          }
+        }
+      }
+
+      // Sort by timestamp (newest first)
+      savedImages.sort((a, b) => b.timestamp - a.timestamp);
+
+      // Display saved images
+      if (savedImages.length > 0) {
+        savedImagesContainer.innerHTML = '';
+        savedImages.forEach(imageData => {
+          const card = document.createElement('div');
+          card.className = 'saved-image-card';
+
+          // Check if the image exists in the img folder
+          const imgElement = document.createElement('img');
+          imgElement.alt = imageData.word;
+          imgElement.className = 'img-thumbnail';
+
+          // Try to load from img folder first
+          const imgPath = imageData.path;
+          const imgSrc = imageData.dataUrl;
+
+          // Create a temporary image to check if the file exists
+          const tempImg = new Image();
+          tempImg.onload = function() {
+            // Image exists in img folder
+            imgElement.src = imgPath;
+            card.querySelector('.source-info').textContent = 'Source: img folder';
+            card.querySelector('.source-info').className = 'source-info small text-success mb-1';
+          };
+          tempImg.onerror = function() {
+            // Image doesn't exist in img folder, use data URL
+            imgElement.src = imgSrc;
+            card.querySelector('.source-info').textContent = 'Source: localStorage';
+            card.querySelector('.source-info').className = 'source-info small text-warning mb-1';
+          };
+
+          // Set initial source to data URL (will be replaced if img folder version exists)
+          imgElement.src = imgSrc;
+
+          // Create card content
+          card.innerHTML = `
+                            <div class="img-container"></div>
+                            <p class="mb-1"><strong>${imageData.word}</strong></p>
+                            <p class="source-info small text-muted mb-1">Checking source...</p>
+                            <p class="small text-muted mb-1">${new Date(imageData.timestamp).toLocaleString()}</p>
+                            <p class="small text-muted mb-1">Path: ${imageData.path}</p>
+                            <button class="btn btn-sm btn-outline-primary download-btn" data-filename="${imageData.filename}" data-url="${imageData.dataUrl}">Download</button>
+                            <button class="btn btn-sm btn-outline-success use-btn" data-word="${imageData.word}">Use This Image</button>
+                        `;
+
+          // Add the image to the card
+          card.querySelector('.img-container').appendChild(imgElement);
+
+          // Start checking if image exists in img folder
+          tempImg.src = imgPath;
+
+          savedImagesContainer.appendChild(card);
+        });
+
+        // Add event listeners to download buttons
+        document.querySelectorAll('.download-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const filename = this.getAttribute('data-filename');
+            const dataUrl = this.getAttribute('data-url');
+
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = filename;
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          });
+        });
+
+        // Add event listeners to "Use This Image" buttons
+        document.querySelectorAll('.use-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const word = this.getAttribute('data-word');
+            wordInput.value = word;
+
+            // Show loading indicator
+            imageContainer.innerHTML = `
+                                <div class="text-center">
+                                    <p>Loading cached image for "${word}"...</p>
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            `;
+
+            // Use fetchPexelsImages which should now check for cached images first
+            fetchPexelsImages(word)
+              .then(images => {
+                if (images && images.length > 0) {
+                  const image = images[0];
+
+                  // Display the image
+                  imageContainer.innerHTML = '';
+                  const img = document.createElement('img');
+                  img.src = image.dataUrl || image.src.medium;
+                  img.alt = image.alt || `Image of ${word}`;
+                  img.className = 'img-fluid';
+                  imageContainer.appendChild(img);
+
+                  // Display image info
+                  imageInfo.innerHTML = `
+                                            <p>Source: ${image.isGenerated ? 'Generated locally' : 'Pexels API'}</p>
+                                            <p>ID: ${image.id}</p>
+                                            <p>Path: ${image.src.medium}</p>
+                                            ${image.photographer ? `<p>Photographer: ${image.photographer}</p>` : ''}
+                                        `;
+
+                  // Show a success message if the image was loaded from cache
+                  if (image.isGenerated) {
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'alert alert-success mt-3';
+                    successMsg.textContent = `Successfully loaded cached image for "${word}"`;
+                    imageContainer.appendChild(successMsg);
+                  }
+                } else {
+                  imageContainer.innerHTML = '<p class="text-danger">No images found</p>';
+                  imageInfo.innerHTML = '';
+                }
+              })
+              .catch(error => {
+                console.error('Error fetching image:', error);
+                imageContainer.innerHTML = `<p class="text-danger">Error: ${error.message}</p>`;
+                imageInfo.innerHTML = '';
+              });
+          });
+        });
+      } else {
+        savedImagesContainer.innerHTML = '<p class="text-muted">No saved images found</p>';
+      }
+    }
+  });
+  // Add this after the existing script content
+  function testUniqueImages() {
+    const words = ['cat', 'dog', 'bird', 'tree', 'house'];
+    const container = document.getElementById('savedImages');
+    container.innerHTML = '<div class="text-center"><h3>Testing Unique Images...</h3></div>';
+
+    // Create a grid for test images
+    const grid = document.createElement('div');
+    grid.className = 'row';
+    container.appendChild(grid);
+
+    // Test each word
+    Promise.all(words.map(word => {
+      const col = document.createElement('div');
+      col.className = 'col-md-4 mb-3';
+      col.innerHTML = `<h4>${word}</h4><div id="image_${word}" class="image-container"></div>`;
+      grid.appendChild(col);
+
+      return fetchPexelsImages(word)
+        .then(images => {
+          if (images && images.length > 0) {
+            const img = document.createElement('img');
+            img.src = images[0].src.medium;
+            img.alt = `Image of ${word}`;
+            img.className = 'img-fluid rounded shadow-sm';
+            document.getElementById(`image_${word}`).appendChild(img);
+          }
+        })
+        .catch(error => {
+          document.getElementById(`image_${word}`).innerHTML =
+            `<p class="text-danger">Error loading image for "${word}": ${error.message}</p>`;
+        });
+    }));
+  }
+  // Add a test button to the page
+  const testButton = document.createElement('button');
+  testButton.className = 'btn btn-primary mt-3';
+  testButton.textContent = 'Test Unique Images';
+  testButton.onclick = testUniqueImages;
+  document.querySelector('.container').appendChild(testButton);

@@ -1,0 +1,27 @@
+{
+  "name": "تعلم الأحرف العربية مع الحركات",
+  "short_name": "الأحرف العربية",
+  "description": "تطبيق تعليمي تفاعلي لتعليم الأحرف العربية مع الحركات والألعاب للأطفال والمبتدئين.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffe082",
+  "theme_color": "#0288d1",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait",
+  "scope": "/",
+  "related_applications": [],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,25 @@
+version: "1.0"
+linter: jetbrains/qodana-js:latest
+profile:
+  name: qodana.starter
+include:
+  - name: CheckDependencyLicenses
+  - name: Eslint
+  - name: Stylelint
+exclude:
+  - name: CheckThirdPartyLicenses
+    paths:
+      - node_modules
+  - name: Eslint
+    paths:
+      - script.js
+      - tests/
+inspection:
+  - id: Eslint
+    options:
+      config: .eslintrc.json
+  - id: Stylelint
+    options:
+      config: .stylelintrc.json
+projectJDK: 17
+bootstrap: npm install

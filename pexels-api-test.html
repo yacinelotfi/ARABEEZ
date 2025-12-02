@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pexels API Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .image-container {
+            min-height: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container img {
+            max-height: 200px;
+            object-fit: contain;
+        }
+        .api-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid #05A081; /* Pexels brand color */
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Pexels API Test</h1>
+
+        <div class="api-info">
+            <h4>About This Page</h4>
+            <p>This page demonstrates how to call the Pexels API and handle the response. It provides examples of both using the <code>fetchPexelsImages</code> function and using the Pexels client directly.</p>
+            <p>Open the browser console (F12) to see the detailed API response logs.</p>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2>API Response Structure</h2>
+                <p>The Pexels API returns a response with the following structure:</p>
+                <div id="responseStructureContainer"></div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2>Example 1: Using fetchPexelsImages</h2>
+                <div class="code-block">// Call the fetchPexelsImages function with a search term
+fetchPexelsImages('nature')
+  .then(images => {
+    console.log('Images returned:', images);
+    // Process the images array here
+  })
+  .catch(error => {
+    console.error('Error fetching images:', error);
+  });</div>
+                <button class="btn btn-success" id="example1Button" style="background-color: #05A081; border-color: #05A081;">Run Example 1</button>
+                <div id="example1Container" class="image-container">
+                    <p class="text-muted">Click "Run Example 1" to fetch and display an image</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2>Example 2: Using the Pexels Client Directly</h2>
+                <div class="code-block">// Use the Pexels client directly
+client.photos.search({ query: 'animals', per_page: 5 })
+  .then(response => {
+    console.log('Full API response:', response);
+    // Process the full response object
+    const photos = response.photos;
+    // Do something with the photos
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });</div>
+                <button class="btn btn-success" id="example2Button" style="background-color: #05A081; border-color: #05A081;">Run Example 2</button>
+                <div id="example2Container" class="image-container">
+                    <p class="text-muted">Click "Run Example 2" to fetch and display an image</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="alert alert-info">
+                    <h5>Documentation Resources</h5>
+                    <ul>
+                        <li><a href="pexels-api-response.md">Pexels API Response Documentation</a> - Detailed explanation of the API response format</li>
+                        <li><a href="pexels-demo.html">Pexels Demo Page</a> - Interactive demo of the Pexels API</li>
+                        <li><a href="https://www.pexels.com/api/documentation/" target="_blank">Official Pexels API Documentation</a> - Complete API reference</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the Pexels API scripts -->
+    <script src="js/pexels.js"></script>
+    <script src="js/pexels-api-test.js"></script>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Display API response structure
+            displayAPIResponseStructure('responseStructureContainer');
+
+            // Set up example 1 button
+            const example1Button = document.getElementById('example1Button');
+            if (example1Button) {
+                example1Button.addEventListener('click', function() {
+                    // Show loading indicator
+                    document.getElementById('example1Container').innerHTML =
+                        '<div class="text-center"><p>Loading image...</p><div class="spinner-border" style="color: #05A081;" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+
+                    // Call the test function
+                    fetchPexelsImages('nature')
+                        .then(images => {
+                            if (images && images.length > 0) {
+                                displayImage(images[0].src.medium, 'example1Container');
+                            } else {
+                                document.getElementById('example1Container').innerHTML =
+                                    '<p class="text-danger">No images found</p>';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            document.getElementById('example1Container').innerHTML =
+                                `<p class="text-danger">Error: ${error.message}</p>`;
+                        });
+                });
+            }
+
+            // Set up example 2 button
+            const example2Button = document.getElementById('example2Button');
+            if (example2Button) {
+                example2Button.addEventListener('click', function() {
+                    // Show loading indicator
+                    document.getElementById('example2Container').innerHTML =
+                        '<div class="text-center"><p>Loading image...</p><div class="spinner-border" style="color: #05A081;" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+
+                    // Call the Pexels client directly
+                    if (typeof client !== 'undefined') {
+                        client.photos.search({ query: 'animals', per_page: 5 })
+                            .then(response => {
+                                console.log('Full API response:', response);
+
+                                if (response.photos && response.photos.length > 0) {
+                                    displayImage(response.photos[0].src.medium, 'example2Container');
+                                } else {
+                                    document.getElementById('example2Container').innerHTML =
+                                        '<p class="text-danger">No images found</p>';
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                document.getElementById('example2Container').innerHTML =
+                                    `<p class="text-danger">Error: ${error.message}</p>`;
+                            });
+                    } else {
+                        document.getElementById('example2Container').innerHTML =
+                            '<p class="text-danger">Pexels client is not defined. Make sure pexels.js is loaded.</p>';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
