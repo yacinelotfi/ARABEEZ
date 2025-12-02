@@ -420,10 +420,11 @@
 <footer class="text-center mt-5 py-3">
   <div class="container">
     <div class="mb-3">
-      <a class="btn btn-sm btn-outline-secondary me-1" href="privacy-policy.html">سياسة الخصوصية</a>
-      <a class="btn btn-sm btn-outline-secondary me-1" href="terms.html">شروط الاستخدام</a>
-      <a class="btn btn-sm btn-outline-secondary me-1" href="about.html">من نحن</a>
-      <a class="btn btn-sm btn-outline-secondary" href="contact.html">تواصل معنا</a>
+      <!-- liens gérés par JS selon la langue choisie -->
+      <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a>
+      <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="terms">Terms / شروط الاستخدام</a>
+      <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="about">About / من نحن</a>
+      <a href="#" class="btn btn-sm btn-outline-secondary i18n-link" data-page="contact">Contact / تواصل معنا</a>
     </div>
     <p>تم التطوير بواسطة ياسين لطفي - Yacine LOTFI</p>
     <p><a href="https://www.facebook.com/yacinelotfi199/" target="_blank" rel="noopener noreferrer">تواصل معي على فيسبوك</a></p>
@@ -458,6 +459,50 @@
 <script src="js/app.js"></script>
 <script src="js/pexels.js"></script>
 <script src="js/visual-effects.js"></script>
+
+<!-- Language handling: mémorise la préférence et redirige vers la page appropriée -->
+<script>
+  // filepath: /workspaces/ARABEEZ/index.html
+  (function () {
+    function setPreferred(lang) {
+      try { localStorage.setItem('preferredLang', lang); } catch (e) { /* ignore */ }
+    }
+
+    // appelé par les boutons de langue du header
+    window.switchLanguage = function (lang) {
+      setPreferred(lang);
+      if (lang === 'en') {
+        window.location.href = './pages/en.html';
+      } else {
+        window.location.href = './index.html'; // page arabe الرئيسية
+      }
+    };
+
+    // gérer les liens du footer pour ouvrir la version correcte (en/ar)
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.i18n-link').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var page = el.dataset.page || 'privacy';
+          var pref = (localStorage.getItem('preferredLang') || document.documentElement.lang || 'ar').toLowerCase();
+          var lang = (pref === 'en') ? 'en' : 'ar';
+          var target = './pages/' + page + '-' + (lang === 'en' ? 'en' : 'ar') + '.html';
+          // fallbacks simples pour pages qui peuvent ne pas exister
+          if (page === 'about' && lang === 'ar') target = './index.html';
+          window.location.href = target;
+        });
+      });
+
+      // si l'utilisateur avait choisi anglais auparavant et qu'on est sur index.html, rediriger immédiatement
+      try {
+        var previous = localStorage.getItem('preferredLang');
+        if (previous === 'en' && location.pathname.endsWith('index.html')) {
+          window.location.href = './pages/en.html';
+        }
+      } catch (e) { /* ignore */ }
+    });
+  })();
+</script>
 
 </body>
 </html>
