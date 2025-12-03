@@ -463,9 +463,15 @@
 <script src="js/pexels.js"></script>
 <script src="js/visual-effects.js"></script>
 
-<!-- Language handling: gérer les liens du footer SANS redirection -->
+<!-- Language handling & Sitemap function -->
 <script>
   // filepath: /workspaces/ARABEEZ/index.html
+  
+  // Fonction pour naviguer vers la page sitemap
+  window.goToSitemap = function() {
+    window.location.href = './sitemap.html';
+  };
+
   (function () {
     // gérer les liens du footer pour ouvrir la version correcte (en/ar) DANS PAGES/
     document.addEventListener('DOMContentLoaded', function () {
