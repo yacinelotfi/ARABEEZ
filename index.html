@@ -83,12 +83,15 @@
   <section class="text-center mb-4">
     <h2>استكشف الأحرف العربية مع الحركات</h2>
     <p>تعلم الحروف العربية بسهولة من خلال ألعاب تعليمية ممتعة مع هذا التطبيق التفاعلي المجاني. مثالي للأطفال والمبتدئين!</p>
-    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
-      <button class="btn btn-secondary" onclick="resetProgress()">إعادة التقدم</button>
-      <button class="btn btn-primary" onclick="speakIntro()" aria-label="استمع للمقدمة">استمع للمقدمة</button>
-      <button class="btn btn-toggle-speech" id="toggleSpeechBtn" onclick="toggleSpeech()" aria-pressed="true">تعطيل الصوت</button>
-      <button class="btn btn-info" onclick="showGlobalQuiz()" aria-label="ابدأ الاختبار العام">اختبار عام</button>
-      <button class="btn btn-primary" onclick="shareSite()">شارك التطبيق</button>
+    
+    <!-- Buttons - Small, positioned below image -->
+    <div class="d-flex flex-wrap justify-content-center gap-1 mb-4" style="font-size: 0.85rem;">
+      <button class="btn btn-sm btn-secondary" onclick="resetProgress()">إعادة التقدم</button>
+      <button class="btn btn-sm btn-primary" onclick="speakIntro()">استمع</button>
+      <button class="btn btn-sm btn-toggle-speech" id="toggleSpeechBtn" onclick="toggleSpeech()">الصوت</button>
+      <button class="btn btn-sm btn-info" onclick="showGlobalQuiz()">اختبار</button>
+      <button class="btn btn-sm btn-primary" onclick="shareSite()">شارك</button>
+      <button class="btn btn-sm btn-warning" onclick="goToSitemap()">خريطة الموقع</button>
     </div>
   </section>
 

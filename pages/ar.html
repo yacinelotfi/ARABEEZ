@@ -3,16 +3,63 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>مرحبا — العربية</title>
+	<title>تعلم الأحرف العربية - تطبيق تفاعلي مجاني</title>
+	<meta name="description" content="تعلم الأحرف العربية بطريقة تفاعلية وممتعة مع ألعاب تعليمية للأطفال والمبتدئين." />
+	<meta name="keywords" content="تعلم العربية, الأحرف العربية, ألعاب تعليمية" />
+	
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wiW5oaDSLFkIl92vHokAbsTxTApya4HLb++fV3w9AUJalJUpE4MOBvDBcHsdrFvnkR7Kc6JSt3LcvNQ==" crossorigin="anonymous">
+	<!-- Custom Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
+	<!-- Project CSS -->
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/animations.css">
+	
 	<style>
-		body { font-family: system-ui, "Segoe UI", Roboto, "Noto Naskh Arabic", "Arial"; margin: 2rem; line-height:1.8; direction: rtl; text-align: right; }
-		.lang-switch { margin-top: 1.5rem; display:inline-block; padding: .5rem .75rem; background:#f3f4f6; border-radius:6px; text-decoration:none; color:#111; direction:ltr; }
+		body { font-family: "Kufam", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial; direction:rtl; text-align:right; line-height:1.8; color:#333; padding: 2rem 0; }
+		.container { max-width:1200px; margin:0 auto; padding: 0 1.5rem; }
+		h1, h2, h3 { color:#0066cc; margin-top:1.5rem; margin-bottom:1rem; }
+		.nav-links { margin:1.5rem 0; padding:1rem; background:#f9f9f9; border-radius:6px; }
+		.nav-links a { display:inline-block; margin-left:1rem; padding:0.5rem 1rem; background:#0066cc; color:white; text-decoration:none; border-radius:4px; transition: background 0.3s ease; }
+		.nav-links a:hover { background:#0052a3; }
+		.footer-links { margin-top:2rem; padding-top:1rem; border-top:1px solid #ccc; font-size:0.9rem; }
+		.footer-links a { color:#0066cc; text-decoration:none; margin-left:1rem; transition: color 0.3s ease; }
+		.footer-links a:hover { text-decoration:underline; }
+		.lang-switch { display:inline-block; padding:.5rem .75rem; background:#f0f0f0; border-radius:6px; text-decoration:none; color:#0066cc; margin-right:0.5rem; }
 	</style>
 </head>
 <body>
-	<h1>مرحبا بك</h1>
-	<p>هذه الصفحة باللغة العربية. استخدم الرابط أدناه للتبديل إلى النسخة الإنجليزية.</p>
+	<div class="container">
+		<h1>مرحباً بك في تعلم الأحرف العربية</h1>
+		<p>تطبيق تفاعلي يساعدك على تعلم الأحرف العربية مع الحركات من خلال ألعاب ممتعة وتمارين تعليمية مصممة للأطفال والمبتدئين.</p>
 
-	<a class="lang-switch" href="./en.html" rel="alternate" hreflang="en">English — الإنجليزية</a>
+		<div class="nav-links">
+			<a href="../index.html">← العودة للتطبيق الرئيسي</a>
+		</div>
+
+		<h2>معلومات مهمة</h2>
+		<p>يرجى مراجعة وثائقنا القانونية قبل استخدام التطبيق:</p>
+		<ul>
+			<li><a href="./privacy-ar.html">سياسة الخصوصية</a> - كيفية جمع وحماية بيانات المستخدمين</li>
+			<li><a href="./terms-ar.html">شروط الخدمة</a> - قواعد واستخدام التطبيق</li>
+			<li><a href="./disclaimer-ar.html">تحفظات</a> - تنبيهات مهمة</li>
+			<li><a href="./contact-ar.html">اتصل بنا</a> - للإجابة على أسئلتك</li>
+		</ul>
+
+		<div class="footer-links">
+			<strong>روابط قانونية وداعمة:</strong><br>
+			<a href="./privacy-ar.html">سياسة الخصوصية</a> |
+			<a href="./terms-ar.html">شروط الخدمة</a> |
+			<a href="./disclaimer-ar.html">تحفظات</a> |
+			<a href="./contact-ar.html">اتصل بنا</a>
+		</div>
+
+		<div class="footer-links" style="margin-top:2rem;">
+			<p>© 2024 تطبيق تعلم الأحرف العربية - تطويير بواسطة ياسين لطفي<br>
+			<a href="./en.html" class="lang-switch">English</a></p>
+		</div>
+	</div>
 </body>
 </html>
