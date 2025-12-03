@@ -3,30 +3,98 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>تحفظات - تطبيق تعلم الأحرف العربية</title>
+  <title>تحفظات</title>
+  <meta name="description" content="تحفظات وملاحظات هامة بخصوص استخدام تطبيق تعلم الأحرف العربية.">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
   <style>
-    body { font-family: system-ui, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial; margin:2rem; line-height:1.8; text-align:right; }
-    .lang-switch { margin-top:1rem; display:inline-block; padding:.5rem .75rem; background:#f3f4f6; border-radius:6px; text-decoration:none; color:#111; direction:ltr; }
+    body {
+      font-family: "Kufam", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial;
+      direction: rtl;
+      text-align: right;
+      line-height: 1.8;
+      color: #333;
+      padding: 2rem 0;
+      background: #fafafa;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    main { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 {
+      color: #0066cc;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      border-bottom: 3px solid #0066cc;
+      padding-bottom: 1rem;
+    }
+    h2 {
+      color: #0066cc;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #0052a3;
+      text-decoration: underline;
+    }
+    .footer-nav {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .nav-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      margin-left: 0.5rem;
+    }
+    .nav-button:hover {
+      background: #0052a3;
+      color: white;
+    }
   </style>
 </head>
 <body>
-  <h1>تحفظات</h1>
-  <p>آخر تحديث: ديسمبر 2024</p>
+  <div class="container">
+    <main>
+      <h1>تحفظات</h1>
+      <p>آخر تحديث: ديسمبر 2024</p>
 
-  <h2>لأغراض تعليمية فقط</h2>
-  <p>تم تصميم تطبيق تعلم الأحرف العربية لأغراض تعليمية. رغم أننا نسعى لتقديم محتوى دقيق، لا نضمن دقة أو اكتمال أو فائدة المعلومات المقدمة.</p>
+      <h2>لأغراض تعليمية فقط</h2>
+      <p>تم تصميم هذا التطبيق لأغراض تعليمية. رغم سعينا لتقديم محتوى دقيق، لا نضمن دقة أو اكتمال أو فائدة المعلومات المقدمة.</p>
 
-  <h2>بدون ضمان احترافي</h2>
-  <p>المحتوى لا يمثل نصيحة احترافية. للحصول على إرشادات تعليمية محددة، يرجى استشارة متخصصين مؤهلين.</p>
+      <h2>بدون ضمان احترافي</h2>
+      <p>المحتوى لا يمثل نصيحة احترافية متخصصة. للاستشارات المتخصصة، يرجى التواصل مع خبراء مؤهلين.</p>
 
-  <h2>روابط خارجية</h2>
-  <p>قد يحتوي التطبيق على روابط لمواقع خارجية. لا نتحمل مسؤولية محتواها أو ممارساتها.</p>
+      <h2>روابط خارجية</h2>
+      <p>قد يحتوي التطبيق على روابط لمواقع خارجية. لا نتحمل مسؤولية محتواها أو سياساتها الخاصة.</p>
 
-  <h2>حدود المسؤولية</h2>
-  <p>لا نتحمل مسؤولية أي أضرار (مباشرة أو غير مباشرة) ناتجة عن استخدامك للتطبيق.</p>
+      <h2>حدود المسؤولية</h2>
+      <p>لا نتحمل مسؤولية أي أضرار (مباشرة أو غير مباشرة) ناتجة عن استخدامك للتطبيق.</p>
 
-  <a class="lang-switch" href="./disclaimer-en.html" rel="alternate" hreflang="en">English — الإنجليزية</a>
-  <br/>
-  <a class="lang-switch" href="./ar.html">العودة إلى الصفحة الرئيسية (العربية)</a>
+      <div class="footer-nav">
+        <a href="./disclaimer-en.html" class="nav-button">English</a>
+        <a href="./ar.html" class="nav-button">← الصفحة الرئيسية</a>
+      </div>
+    </main>
+  </div>
 </body>
 </html>

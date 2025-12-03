@@ -4,22 +4,89 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>اتصل بنا</title>
+  <meta name="description" content="اتصل بنا للدعم والاستفسارات حول تطبيق تعلم الأحرف العربية.">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
   <style>
-    body { font-family: system-ui, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial; margin:2rem; line-height:1.8; text-align:right; }
-    .lang-switch { margin-top:1rem; display:inline-block; padding:.5rem .75rem; background:#f3f4f6; border-radius:6px; text-decoration:none; color:#111; direction:ltr; }
-    .contact { margin-top:1rem; text-align:right; }
+    body {
+      font-family: "Kufam", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial;
+      direction: rtl;
+      text-align: right;
+      line-height: 1.8;
+      color: #333;
+      padding: 2rem 0;
+      background: #fafafa;
+    }
+    .container { max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
+    main { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 {
+      color: #0066cc;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      border-bottom: 3px solid #0066cc;
+      padding-bottom: 1rem;
+    }
+    .info-box {
+      background: #f0f8ff;
+      padding: 1.5rem;
+      border-left: 4px solid #0066cc;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .info-box p { margin: 0.5rem 0; }
+    a { color: #0066cc; text-decoration: none; transition: color 0.3s ease; }
+    a:hover { color: #0052a3; text-decoration: underline; }
+    .footer-nav {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .nav-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      margin-left: 0.5rem;
+    }
+    .nav-button:hover { background: #0052a3; color: white; }
   </style>
 </head>
 <body>
-  <h1>اتصل بنا</h1>
-  <p>لأي أسئلة أو دعم، تواصل معنا عبر:</p>
-  <div class="contact">
-    <p>البريد الإلكتروني: support@example.com</p>
-    <p>العنوان: شارع المثال 123، المدينة</p>
-  </div>
+  <div class="container">
+    <main>
+      <h1>اتصل بنا</h1>
+      <p>لأي أسئلة أو استفسارات، تواصل معنا عبر الطرق التالية:</p>
 
-  <a class="lang-switch" href="./contact-en.html" rel="alternate" hreflang="en">English — الإنجليزية</a>
-  <br/>
-  <a class="lang-switch" href="./ar.html">العودة إلى الصفحة الرئيسية (العربية)</a>
+      <div class="info-box">
+        <h3>البريد الإلكتروني</h3>
+        <p><a href="mailto:yacine.lotfi@example.com">yacine.lotfi@example.com</a></p>
+        <p><strong>وقت الرد:</strong> نسعى للرد خلال 48 ساعة</p>
+      </div>
+
+      <div class="info-box">
+        <h3>تواصل اجتماعي</h3>
+        <p><a href="https://www.facebook.com/yacinelotfi199/" target="_blank" rel="noopener noreferrer">فيسبوك - صفحة ياسين لطفي</a></p>
+        <p>تابعنا على الفيسبوك للاطلاع على آخر التحديثات والأخبار</p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="./contact-en.html" class="nav-button">English</a>
+        <a href="./ar.html" class="nav-button">← الصفحة الرئيسية</a>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
