@@ -5,11 +5,33 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>سياسة الخصوصية - تطبيق تعلم الأحرف العربية</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
   <meta name="author" content="Yacine LOTFI">
   <meta name="robots" content="index, follow">
   <style>body{direction:rtl;padding:20px;font-family:inherit;}</style>
 </head>
 <body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="articles.html">Articles / مقالات</a></li>
+      <li><a href="sitemap.html">Sitemap / خريطة الموقع</a></li>
+      <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+      <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+      <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+      <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+    </ul>
+  </div>
+
   <main class="container">
     <h1>سياسة الخصوصية</h1>
     <p>آخر تحديث: ديسمبر 2025</p>
@@ -41,5 +63,6 @@
 
     <p><a href="index.html">العودة إلى الصفحة الرئيسية</a></p>
   </main>
+  <script src="js/menu.js"></script>
 </body>
 </html>

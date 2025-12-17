@@ -8,11 +8,33 @@
   <meta name="author" content="Yacine LOTFI">
   <meta name="robots" content="noindex">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wiW5oaDSLFkIl92vHokAbsTxTApya4HLb++fV3w9AUJalJUpE4MOBvDBcHsdrFvnkR7Kc6JSt3LcvNQ==" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
 </head>
 <body class="py-4">
+
+<!-- Hamburger Menu -->
+<div class="hamburger-menu">
+  <div class="hamburger-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<!-- Navigation Menu -->
+<div class="nav-menu" id="nav-menu">
+  <ul>
+    <li><a href="index.html">Home / الرئيسية</a></li>
+    <li><a href="articles.html">Articles / مقالات</a></li>
+    <li><a href="sitemap.html">Sitemap / خريطة الموقع</a></li>
+    <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+    <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+    <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+    <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+  </ul>
+</div>
+
 <a href="#main-content" class="visually-hidden-focusable">تخطى إلى المحتوى الرئيسي</a>
 <main id="main-content" class="container text-center">
   <div class="animate__animated animate__fadeIn">
@@ -27,5 +49,6 @@
   <p><a href="https://www.facebook.com/yacinelotfi199/" target="_blank">تواصل معي على فيسبوك</a></p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="js/menu.js"></script>
 </body>
 </html>

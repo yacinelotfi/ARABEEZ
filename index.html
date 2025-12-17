@@ -46,12 +46,87 @@
   <!-- Stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wiW5oaDSLFkIl92vHokAbsTxTApya4HLb++fV3w9AUJalJUpE4MOBvDBcHsdrFvnkR7Kc6JSt3LcvNQ==" crossorigin="anonymous">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css"> <!-- Link to your custom CSS -->
   <link rel="stylesheet" href="css/animations.css"> <!-- Link to animations CSS -->
+  <style>
+    .hamburger-menu {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000;
+    }
+    .hamburger-icon {
+      width: 30px;
+      height: 22px;
+      position: relative;
+      cursor: pointer;
+    }
+    .hamburger-icon span {
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: #333;
+      border-radius: 2px;
+      opacity: 1;
+      left: 0;
+      transition: .25s ease-in-out;
+    }
+    .hamburger-icon span:nth-child(1) { top: 0px; }
+    .hamburger-icon span:nth-child(2) { top: 9px; }
+    .hamburger-icon span:nth-child(3) { top: 18px; }
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: #f8f9fa;
+      padding-top: 60px;
+      transition: left .5s ease;
+      z-index: 999;
+    }
+    .nav-menu.active {
+      left: 0;
+    }
+    .nav-menu ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .nav-menu ul li {
+      padding: 15px 20px;
+    }
+    .nav-menu ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 <body class="py-4">
+
+<!-- Hamburger Menu -->
+<div class="hamburger-menu">
+  <div class="hamburger-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<!-- Navigation Menu -->
+<div class="nav-menu" id="nav-menu">
+  <ul>
+    <li><a href="articles.html">Articles / مقالات</a></li>
+    <li><a href="sitemap.html">Sitemap / خريطة الموقع</a></li>
+    <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+    <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+    <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+    <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+  </ul>
+</div>
 
 <!-- Skip Link for Accessibility -->
 <a href="#main-content" class="visually-hidden-focusable">تخطى إلى المحتوى الرئيسي</a>
@@ -97,11 +172,58 @@
     </div>
   </section>
 
+  <!-- Static Content for SEO -->
+  <section class="static-content-seo p-4 mb-5 border rounded">
+    <h3 class="mb-3">لماذا تطبيقنا هو الخيار الأفضل لتعلم العربية؟</h3>
+    <p>تم تصميم هذا التطبيق ليكون أداة تعليمية شاملة تساعد الأطفال والمبتدئين على إتقان الأحرف العربية والحركات (التشكيل) بطريقة سهلة وممتعة. نحن نؤمن بأن التعلم التفاعلي هو مفتاح النجاح، ولهذا السبب قمنا بتضمين مجموعة متنوعة من الألعاب والأنشطة التي تجعل رحلة تعلم اللغة العربية مسلية ومحفزة.</p>
+    
+    <h4>الميزات الرئيسية:</h4>
+    <ul>
+      <li><strong>تعلم تفاعلي:</strong> انقر على أي حرف لاستكشاف نطقه مع الحركات المختلفة (فتحة، ضمة، كسرة) والمدود.</li>
+      <li><strong>ألعاب تعليمية متنوعة:</strong> اختبر معلوماتك مع ألعاب مثل "تخمين الحرف"، "ترتيب الكلمات"، و"صائد الكلمات".</li>
+      <li><strong>نطق صوتي واضح:</strong> استمع إلى النطق الصحيح لكل حرف وكلمة وجملة، مما يساعد على تحسين مهارات الاستماع والنطق.</li>
+      <li><strong>تتبع التقدم:</strong> شاهد تقدمك وأنت تكمل الأنشطة وتحقق إنجازات جديدة.</li>
+      <li><strong>محتوى غني بالكلمات والجمل:</strong> لكل حرف، نقدم أمثلة من الكلمات والجمل لتعزيز الفهم وربط الحروف بسياقها.</li>
+    </ul>
+    <p>سواء كنت تبدأ من الصفر أو ترغب في تحسين مهاراتك الأساسية، يوفر تطبيقنا بيئة تعليمية آمنة وفعالة. ابدأ رحلتك اليوم واكتشف جمال اللغة العربية!</p>
+  </section>
+
   <!-- Letter Grid -->
   <section>
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 justify-content-center" id="lettersContainer">
       <!-- Letter cards will be generated here by JavaScript -->
       <div class="text-center p-4"><p>جارٍ تحميل الأحرف...</p><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>
+    </div>
+  </section>
+
+  <!-- Games Description Section -->
+  <section class="games-description p-4 my-5 border rounded">
+    <h2 class="text-center mb-4">استكشف ألعابنا التعليمية</h2>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>لعبة ترتيب الحروف (showWritingGame)</h4>
+        <p>تهدف هذه اللعبة إلى تعليم الأطفال كيفية تكوين الكلمات من خلال ترتيب الحروف المبعثرة. يتم عرض مجموعة من الحروف وعلى الطفل سحبها وإفلاتها بالترتيب الصحيح لتشكيل كلمة ذات معنى. تساعد هذه اللعبة على تعزيز المهارات الإملائية وفهم بنية الكلمة.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>لعبة تخمين الحرف (showGuessGame)</h4>
+        <p>في هذه اللعبة، يستمع الطفل إلى صوت حرف معين وعليه اختيار الحرف الصحيح من بين عدة خيارات. هذه اللعبة ممتازة لتقوية الربط بين شكل الحرف وصوته، وهي مهارة أساسية في تعلم القراءة.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>لعبة الكتابة (showWritingPractice)</h4>
+        <p>تتيح هذه اللعبة للأطفالฝึก كتابة الحروف العربية. يتم عرض الحرف على الشاشة، ويقوم الطفل بكتابته في مربع النص المخصص. يتلقى الطفل تقييمًا فوريًا لمساعدته على تحسين خطه وإتقان شكل الحرف.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>لعبة الحرف المتحرك (showMovingLetterGame)</h4>
+        <p>لعبة تفاعلية وممتعة حيث يظهر حرف متحرك على الشاشة مع الحركات المختلفة (فتحة، ضمة، كسرة). تساعد هذه اللعبة على ترسيخ مفهوم الحركات وأثرها على نطق الحرف بطريقة بصرية جذابة.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>لعبة صائد الكلمات (showWordHunterGame)</h4>
+        <p>لعبة سريعة ومليئة بالتحدي، حيث يجب على الطفل العثور على الكلمات التي تحتوي على حرف معين خلال فترة زمنية محدودة. هذه اللعبة تطور سرعة القراءة والقدرة على تمييز الحروف داخل الكلمات.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>لعبة المقطع الناقص (showMissingSyllableGame)</h4>
+        <p>في هذه اللعبة، تُعرض كلمة ينقصها مقطع صوتي، وعلى الطفل اختيار المقطع الصحيح لإكمال الكلمة. تهدف هذه اللعبة إلى تعليم الأطفال عن المقاطع الصوتية وكيفية بناء الكلمات منها.</p>
+      </div>
     </div>
   </section>
 </main>
@@ -426,6 +548,8 @@
   <div class="container">
     <div class="mb-3">
       <!-- Liens gérés par JS pour naviguer vers pages légales -->
+      <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="about">About / من نحن</a>
+      <a href="articles.html" class="btn btn-sm btn-outline-secondary me-1">Articles / مقالات</a>
       <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a>
       <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="terms">Terms / شروط الاستخدام</a>
       <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="disclaimer">Disclaimer / تحفظات</a>
@@ -467,8 +591,11 @@
 
 <!-- Language handling & Sitemap function -->
 <script>
-  // filepath: /workspaces/ARABEEZ/index.html
-  
+  function toggleMenu() {
+    var menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+  }
+
   // Fonction pour naviguer vers la page sitemap
   window.goToSitemap = function() {
     window.location.href = './sitemap.html';
@@ -489,7 +616,9 @@
           
           // Fallback pour les pages qui pourraient ne pas exister
           if (page === 'about' && lang === 'ar') {
-            target = './index.html'; // Pas de page "about-ar", garder index
+            target = './pages/about-ar.html'; 
+          } else if (page === 'about' && lang === 'en') {
+            target = './pages/about-en.html';
           }
           
           console.log('Navigating to:', target);

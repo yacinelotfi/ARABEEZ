@@ -1,5 +1,20 @@
 # www.robotstxt.org/
 
-# Allow crawling of all content
 User-agent: *
-Disallow:
+Disallow: /pexels-demo.html
+Disallow: /pexels-api-test.html
+Disallow: /test-image-generation.html
+Disallow: /pexels-api-response.md
+Disallow: /pexels-client-explanation.md
+Disallow: /config/
+Disallow: /.idea/
+Disallow: /webpack.common.js
+Disallow: /webpack.config.dev.js
+Disallow: /webpack.config.prod.js
+Disallow: /package.json
+Disallow: /qodana.yaml
+Disallow: /docker-compose.yml
+Disallow: /untitled.iml
+Disallow: /LICENSE.txt
+
+Sitemap: https://yacinelotfi199.github.io/arabic-letters-game/sitemap.html
