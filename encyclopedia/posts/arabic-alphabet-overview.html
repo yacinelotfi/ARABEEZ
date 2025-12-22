@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>الأبجدية العربية: نظرة عامة</title>
+  <meta name="description" content="دليل شامل للأبجدية العربية، يغطي عدد الحروف، اتجاه الكتابة، والحروف المتصلة والمنفصلة.">
+  <meta name="author" content="Yacine LOTFI">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/menu.css">
+  
+  <style>
+    body { 
+      font-family: "Kufam", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial; 
+      direction: rtl; 
+      text-align: right; 
+      line-height: 1.8; 
+      color: #333; 
+      padding: 2rem 0; 
+      background: #fafafa;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    main { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { 
+      color: #0066cc; 
+      margin-bottom: 1.5rem; 
+      font-weight: 700; 
+      border-bottom: 3px solid #0066cc; 
+      padding-bottom: 1rem;
+    }
+    h2 { 
+      color: #0066cc; 
+      margin-top: 1.5rem; 
+      margin-bottom: 1rem; 
+      font-weight: 600;
+    }
+    p { margin-bottom: 1rem; color: #555; }
+    ul { margin-bottom: 1rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: 600;
+    }
+    .nav-button { 
+      display: inline-block; 
+      margin-top: 1.5rem; 
+      padding: 0.6rem 1.2rem; 
+      background: #0066cc; 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .nav-button:hover { background: #0052a3; color: white; }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="../../articles.html">Articles / مقالات</a></li>
+      <li><a href="../../sitemap.html">Sitemap / خريطة الموقع</a></li>
+      <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+      <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+      <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+      <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <main>
+      <h1>الأبجدية العربية: نظرة عامة</h1>
+      
+      <p>الأبجدية العربية هي نظام الكتابة المستخدم في اللغة العربية والعديد من اللغات الأخرى في آسيا وأفريقيا. إنها ثاني أكثر الأبجديات استخدامًا في العالم بعد الأبجدية اللاتينية. في هذا المقال، سنستكشف الخصائص الرئيسية للأبجدية العربية.</p>
+
+      <h2>عدد الحروف واتجاه الكتابة</h2>
+      <p>تتكون الأبجدية العربية من 28 حرفًا أساسيًا. على عكس اللغة الإنجليزية، تكتب اللغة العربية من اليمين إلى اليسار. قد يبدو هذا غير معتاد في البداية، لكنه يصبح طبيعيًا مع الممارسة.</p>
+
+      <h2>جدول الحروف الأبجدية</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>الحرف</th>
+            <th>اسمه</th>
+            <th>صوته (تقريبي)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>أ</td><td>ألف</td><td>a</td></tr>
+          <tr><td>ب</td><td>باء</td><td>b</td></tr>
+          <tr><td>ت</td><td>تاء</td><td>t</td></tr>
+          <tr><td>ث</td><td>ثاء</td><td>th</td></tr>
+          <tr><td>ج</td><td>جيم</td><td>j</td></tr>
+          <tr><td>ح</td><td>حاء</td><td>ḥ</td></tr>
+          <tr><td>خ</td><td>خاء</td><td>kh</td></tr>
+          <tr><td>د</td><td>دال</td><td>d</td></tr>
+          <tr><td>ذ</td><td>ذال</td><td>dh</td></tr>
+          <tr><td>ر</td><td>راء</td><td>r</td></tr>
+          <tr><td>ز</td><td>زاي</td><td>z</td></tr>
+          <tr><td>س</td><td>سين</td><td>s</td></tr>
+          <tr><td>ش</td><td>شين</td><td>sh</td></tr>
+          <tr><td>ص</td><td>صاد</td><td>ṣ</td></tr>
+          <tr><td>ض</td><td>ضاد</td><td>ḍ</td></tr>
+          <tr><td>ط</td><td>طاء</td><td>ṭ</td></tr>
+          <tr><td>ظ</td><td>ظاء</td><td>ẓ</td></tr>
+          <tr><td>ع</td><td>عين</td><td>ʿ</td></tr>
+          <tr><td>غ</td><td>غين</td><td>gh</td></tr>
+          <tr><td>ف</td><td>فاء</td><td>f</td></tr>
+          <tr><td>ق</td><td>قاف</td><td>q</td></tr>
+          <tr><td>ك</td><td>كاف</td><td>k</td></tr>
+          <tr><td>ل</td><td>لام</td><td>l</td></tr>
+          <tr><td>م</td><td>ميم</td><td>m</td></tr>
+          <tr><td>ن</td><td>نون</td><td>n</td></tr>
+          <tr><td>ه</td><td>هاء</td><td>h</td></tr>
+          <tr><td>و</td><td>واو</td><td>w</td></tr>
+          <tr><td>ي</td><td>ياء</td><td>y</td></tr>
+        </tbody>
+      </table>
+
+      <h2>الحروف المتصلة والمنفصلة</h2>
+      <p>واحدة من أبرز سمات الأبجدية العربية هي أن معظم الحروف تتصل بالحرف التالي في الكلمة. يتغير شكل الحرف قليلاً اعتمادًا على موضعه في الكلمة (في البداية، في المنتصف، أو في النهاية). ومع ذلك، هناك ستة حروف، تُعرف بـ "الحروف المنفصلة" أو "الحروف الرافسة"، لا تتصل بالحرف الذي يليها. هذه الحروف هي: أ، د، ذ، ر، ز، و.</p>
+
+      <h2>النقاط (الإعجام)</h2>
+      <p>تعتمد الأبجدية العربية بشكل كبير على النقاط للتمييز بين الحروف التي لها نفس الشكل الأساسي. على سبيل المثال، الحروف "ب"، "ت"، و "ث" لها نفس الشكل الأساسي، ولكن يتم تمييزها بعدد وموضع النقاط. هذا النظام، المعروف باسم "الإعجام"، هو جزء لا يتجزأ من القراءة والكتابة باللغة العربية.</p>
+
+      <h2>الحروف الشمسية والقمرية</h2>
+      <p>تنقسم الحروف العربية إلى مجموعتين: الحروف الشمسية والحروف القمرية. يؤثر هذا التقسيم على نطق "ال" التعريف. مع الحروف القمرية، يتم نطق اللام (مثل "القمر"). أما مع الحروف الشمسية، فلا يتم نطق اللام، وبدلاً من ذلك يتم تشديد الحرف الشمسي (مثل "الشمس").</p>
+
+      <h2>الخط العربي</h2>
+      <p>الخط العربي هو فن كتابة الحروف العربية بطريقة فنية. هناك العديد من الأساليب المختلفة للخط، من النسخ المستخدم في الطباعة إلى الرقعة المستخدم في الكتابة اليومية، والثلث والديواني المستخدمين في الزخرفة. يعتبر الخط العربي جزءًا مهمًا من التراث الثقافي والفني للعالم الإسلامي.</p>
+
+      <p>قد تبدو الأبجدية العربية معقدة في البداية، لكنها نظام منطقي ومتسق. يوفر تطبيقنا تمارين تفاعلية لمساعدتك على إتقان كل حرف وأشكاله المختلفة، مما يمنحك أساسًا متينًا في رحلتك لتعلم اللغة العربية.</p>
+
+      <div class="footer-nav">
+        <a href="../index.html" class="nav-button">← العودة إلى الموسوعة</a>
+      </div>
+    </main>
+  </div>
+  <script src="../../js/menu.js"></script>
+</body>
+</html>

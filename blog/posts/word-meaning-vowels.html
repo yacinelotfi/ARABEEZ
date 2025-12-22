@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>كيف تغير كلمة عربية واحدة معناها بالحركات</title>
+  <meta name="description" content="اكتشف كيف يمكن لجذر عربي واحد أن ينتج كلمات متعددة بمعانٍ مختلفة بمجرد تغيير الحركات (التشكيل).">
+  <meta name="author" content="Yacine LOTFI">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/menu.css">
+  
+  <style>
+    body { 
+      font-family: "Kufam", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial; 
+      direction: rtl; 
+      text-align: right; 
+      line-height: 1.8; 
+      color: #333; 
+      padding: 2rem 0; 
+      background: #fafafa;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    main { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { 
+      color: #0066cc; 
+      margin-bottom: 1.5rem; 
+      font-weight: 700; 
+      border-bottom: 3px solid #0066cc; 
+      padding-bottom: 1rem;
+    }
+    h2 { 
+      color: #0066cc; 
+      margin-top: 1.5rem; 
+      margin-bottom: 1rem; 
+      font-weight: 600;
+    }
+    p { margin-bottom: 1rem; color: #555; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: 600;
+    }
+    .nav-button { 
+      display: inline-block; 
+      margin-top: 1.5rem; 
+      padding: 0.6rem 1.2rem; 
+      background: #0066cc; 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .nav-button:hover { background: #0052a3; color: white; }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="../../articles.html">Articles / مقالات</a></li>
+      <li><a href="../../sitemap.html">Sitemap / خريطة الموقع</a></li>
+      <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+      <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+      <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+      <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <main>
+      <h1>كيف تغير كلمة عربية واحدة معناها بالحركات</h1>
+      
+      <p>من أروع جوانب اللغة العربية وأكثرها إثارة للاهتمام هو نظام الجذور. يتكون معظم الكلمات في اللغة العربية من جذر ثلاثي (ثلاثة حروف ساكنة) يعمل كأساس لمجموعة واسعة من الكلمات ذات الصلة. بمجرد تغيير الحركات (التشكيل) وإضافة بعض الحروف، يمكنك إنشاء كلمات جديدة بمعانٍ مختلفة تمامًا، وكلها تدور حول فكرة أساسية واحدة.</p>
+
+      <h2>مثال: الجذر ك-ت-ب</h2>
+      <p>لنأخذ الجذر <strong>ك-ت-ب</strong>، الذي يرتبط بفكرة "الكتابة". لاحظ كيف يمكننا اشتقاق كلمات مختلفة من هذا الجذر بمجرد تغيير الحركات:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>الكلمة</th>
+            <th>النطق</th>
+            <th>المعنى</th>
+            <th>الدور</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>كَتَبَ</td><td>kataba</td><td>هو كتب</td><td>فعل ماضي</td></tr>
+          <tr><td>يَكْتُبُ</td><td>yaktubu</td><td>هو يكتب</td><td>فعل مضارع</td></tr>
+          <tr><td>كِتَاب</td><td>kitāb</td><td>كتاب</td><td>اسم (مفعول به)</td></tr>
+          <tr><td>كَاتِب</td><td>kātib</td><td>كاتب</td><td>اسم فاعل</td></tr>
+          <tr><td>مَكْتُوب</td><td>maktūb</td><td>مكتوب</td><td>اسم مفعول</td></tr>
+          <tr><td>مَكْتَب</td><td>maktab</td><td>مكتب / مكتبة</td><td>اسم مكان</td></tr>
+          <tr><td>كُتُب</td><td>kutub</td><td>كتب (جمع)</td><td>جمع</td></tr>
+          <tr><td>كِتَابَة</td><td>kitāba</td><td>كتابة</td><td>مصدر (اسم الفعل)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>لماذا هذا مهم؟</h2>
+      <p>فهم نظام الجذور هذا يغير قواعد اللعبة بالنسبة لمتعلمي اللغة العربية. بدلاً من حفظ مئات الكلمات المعزولة، يمكنك البدء في رؤية الأنماط والروابط بينها. إذا كنت تعرف معنى الجذر، يمكنك في كثير من الأحيان تخمين معنى الكلمات الجديدة التي تصادفك.</p>
+      <p>على سبيل المثال، إذا رأيت كلمة على وزن "مَفْعَل" (mafʿal)، فمن المحتمل جدًا أنها تشير إلى مكان. وإذا رأيت كلمة على وزن "فَاعِل" (fāʿil)، فمن المحتمل أنها تشير إلى الشخص الذي يقوم بالفعل.</p>
+      <p>هذا النظام المنطقي والمنظم هو أحد الأسباب التي تجعل اللغة العربية لغة غنية وقوية. من خلال تطبيقنا، يمكنك استكشاف هذه الأنماط من خلال الألعاب التفاعلية التي تعزز فهمك لكيفية عمل اللغة العربية حقًا.</p>
+
+      <div class="footer-nav">
+        <a href="../../articles.html" class="nav-button">← العودة إلى المقالات</a>
+      </div>
+    </main>
+  </div>
+  <script src="../../js/menu.js"></script>
+</body>
+</html>

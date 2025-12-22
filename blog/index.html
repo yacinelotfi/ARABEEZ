@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>مدونة تعلم اللغة العربية</title>
+  <meta name="description" content="مقالات ومصادر لتعلم اللغة العربية للمبتدئين والأطفال.">
+  <meta name="author" content="Yacine LOTFI">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  
+  <style>
+    body { 
+      font-family: "Kufam", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial; 
+      direction: rtl; 
+      text-align: right; 
+      line-height: 1.8; 
+      color: #333; 
+      padding: 2rem 0; 
+      background: #fafafa;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    main { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { 
+      color: #0066cc; 
+      margin-bottom: 1.5rem; 
+      font-weight: 700; 
+      border-bottom: 3px solid #0066cc; 
+      padding-bottom: 1rem;
+    }
+    .blog-post {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    .blog-post:last-child {
+      border-bottom: none;
+    }
+    .blog-post h2 {
+      color: #0066cc;
+      margin-bottom: 0.5rem;
+    }
+    .blog-post a {
+      text-decoration: none;
+    }
+    .blog-post a:hover h2 {
+      color: #0052a3;
+    }
+    .blog-post p {
+      color: #555;
+    }
+    .nav-button { 
+      display: inline-block; 
+      margin-top: 1.5rem; 
+      padding: 0.6rem 1.2rem; 
+      background: #0066cc; 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .nav-button:hover { background: #0052a3; color: white; }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="../index.html">Home / الرئيسية</a></li>
+      <li><a href="../articles.html">Articles / مقالات</a></li>
+      <li><a href="../sitemap.html">Sitemap / خريطة الموقع</a></li>
+      <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+      <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+      <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+      <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <main>
+      <h1>مدونة تعلم اللغة العربية</h1>
+      
+      <div class="blog-post">
+        <a href="posts/importance-of-learning-arabic.html">
+          <h2>أهمية تعلم اللغة العربية في العصر الحديث</h2>
+        </a>
+        <p>تعتبر اللغة العربية واحدة من أقدم اللغات في العالم وأكثرها ثراءً. في هذا المقال، نستكشف الأسباب التي تجعل تعلم اللغة العربية استثمارًا قيمًا في مستقبلك، سواء على المستوى الشخصي أو المهني.</p>
+      </div>
+      
+      <div class="blog-post">
+        <a href="posts/arabic-diacritics-guide.html">
+          <h2>دليل المبتدئين لفهم الحركات في اللغة العربية</h2>
+        </a>
+        <p>الحركات، أو التشكيل، هي جزء أساسي من اللغة العربية. هذا الدليل يبسط لك مفهوم الحركات (فتحة، ضمة، كسرة) ويشرح أهميتها في تحديد نطق الكلمات ومعانيها.</p>
+      </div>
+
+      <div class="blog-post">
+        <a href="posts/tips-for-teaching-arabic.html">
+          <h2>نصائح لتعليم اللغة العربية للأطفال الصغار</h2>
+        </a>
+        <p>اكتشف استراتيجيات فعالة وممتعة لتعليم اللغة العربية للأطفال الصغار، من خلال الألعاب والأنشطة اليومية.</p>
+      </div>
+
+      <div class="blog-post">
+        <a href="posts/common-challenges-in-learning-arabic.html">
+          <h2>تحديات شائعة عند تعلم اللغة العربية وكيفية التغلب عليها</h2>
+        </a>
+        <p>تعرف على أبرز التحديات التي تواجه متعلمي اللغة العربية، من النطق إلى القواعد، واحصل على نصائح عملية للتغلب عليها.</p>
+      </div>
+
+      <div class="blog-post">
+        <a href="posts/gamification-in-language-learning.html">
+          <h2>دور الألعاب في تعلم اللغات</h2>
+        </a>
+        <p>اكتشف كيف يمكن للألعاب أن تحول عملية تعلم لغة جديدة إلى تجربة ممتعة ومحفزة، وكيف يعزز ذلك من الاحتفاظ بالمعلومات.</p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="../index.html" class="nav-button">← العودة إلى الصفحة الرئيسية</a>
+      </div>
+    </main>
+  </div>
+  <script src="../js/menu.js"></script>
+</body>
+</html>

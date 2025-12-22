@@ -16,9 +16,10 @@
 	<!-- Project CSS -->
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/animations.css">
+	<link rel="stylesheet" href="../css/menu.css">
 	
 	<style>
-		body { font-family: "Kufam", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial; direction:rtl; text-align:right; line-height:1.8; color:#333; padding: 2rem 0; }
+		body { font-family: "Kufam", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial; direction:rtl; text-align:right; line-height:1.8; color:#333; padding: 2rem 0; background: #fafafa; }
 		.container { max-width:1200px; margin:0 auto; padding: 0 1.5rem; }
 		h1, h2, h3 { color:#0066cc; margin-top:1.5rem; margin-bottom:1rem; }
 		.nav-links { margin:1.5rem 0; padding:1rem; background:#f9f9f9; border-radius:6px; }
@@ -31,6 +32,28 @@
 	</style>
 </head>
 <body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="../index.html">Home / الرئيسية</a></li>
+      <li><a href="../articles.html">Articles / مقالات</a></li>
+      <li><a href="../sitemap.html">Sitemap / خريطة الموقع</a></li>
+      <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+      <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+      <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+      <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+    </ul>
+  </div>
+
 	<div class="container">
 		<h1>مرحباً بك في تعلم الأحرف العربية</h1>
 		<p>تطبيق تفاعلي يساعدك على تعلم الأحرف العربية مع الحركات من خلال ألعاب ممتعة وتمارين تعليمية مصممة للأطفال والمبتدئين.</p>
@@ -61,5 +84,6 @@
 			<a href="./en.html" class="lang-switch">English</a></p>
 		</div>
 	</div>
+  <script src="../js/menu.js"></script>
 </body>
 </html>

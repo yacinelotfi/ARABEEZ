@@ -15,6 +15,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/menu.css">
   
   <style>
     body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; line-height:1.8; color:#333; padding: 2rem 0; }
@@ -31,6 +32,27 @@
   </style>
 </head>
 <body class="py-4">
+  <!-- Hamburger Menu -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="../articles.html">Articles / مقالات</a></li>
+      <li><a href="../sitemap.html">Sitemap / خريطة الموقع</a></li>
+      <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+      <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+      <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+      <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+    </ul>
+  </div>
+
   <div class="container">
     <h1>Terms of Service</h1>
     <p class="last-updated">Last Updated: December 2024</p>
@@ -89,5 +111,6 @@
     <hr>
     <p><a href="./en.html">← Back to Home</a> | <a href="./terms-ar.html" class="lang-switch">العربية (Arabic)</a></p>
   </div>
+  <script src="../js/menu.js"></script>
 </body>
 </html>
