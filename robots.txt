@@ -17,4 +17,4 @@ Disallow: /docker-compose.yml
 Disallow: /untitled.iml
 Disallow: /LICENSE.txt
 
-Sitemap: https://yacinelotfi199.github.io/arabic-letters-game/sitemap.html
+Sitemap: https://arabeez.space/sitemap.html
