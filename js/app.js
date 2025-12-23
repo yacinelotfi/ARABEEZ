@@ -181,11 +181,11 @@ const translations = {
     appTitle: 'تعلم الأحرف العربية مع الحركات',
     appDescription: 'ابدأ الآن بتعلم الأحرف العربية بطريقة ممتعة وتفاعلية!',
     resetProgress: 'إعادة التقدم',
-    speakIntro: 'استمع للمقدمة',
-    toggleSpeech: 'تعطيل الصوت',
-    toggleSpeechOn: 'تفعيل الصوت',
-    shareSite: 'شارك التطبيق مع أصدقائك',
-    startQuiz: 'اختبار عام',
+    speakIntro: 'استمع',
+    toggleSpeech: 'الصوت',
+    toggleSpeechOn: 'الصوت',
+    shareSite: 'شارك',
+    startQuiz: 'اختبار',
     errorAudio: 'خطأ: تعذر تشغيل الصوت. يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.',
     errorAudioFallback: 'خطأ في تشغيل الصوت. تم استخدام صوت بديل.',
     errorAudioPermission: 'يرجى السماح بتشغيل الصوت في إعدادات المتصفح.',
@@ -230,7 +230,34 @@ const translations = {
     hideImage: 'إخفاء الصورة',
     showImage: 'إظهار الصورة',
     imagesDisabled: 'الصور معطلة حاليًا',
-    arrangementHint: 'تلميح: تبدأ بـ "{first}" وتنتهي بـ "{last}"', // Added hint translation
+    arrangementHint: 'تلميح: تبدأ بـ "{first}" وتنتهي بـ "{last}"',
+    
+    // New translations for static content
+    mainControlsTitle: 'استكشف الأحرف العربية مع الحركات',
+    mainControlsDesc: 'تعلم الحروف العربية بسهولة من خلال ألعاب تعليمية ممتعة مع هذا التطبيق التفاعلي المجاني. مثالي للأطفال والمبتدئين!',
+    seoTitle: 'لماذا تطبيقنا هو الخيار الأفضل لتعلم العربية؟',
+    seoDesc: 'تم تصميم هذا التطبيق ليكون أداة تعليمية شاملة تساعد الأطفال والمبتدئين على إتقان الأحرف العربية والحركات (التشكيل) بطريقة سهلة وممتعة. نحن نؤمن بأن التعلم التفاعلي هو مفتاح النجاح، ولهذا السبب قمنا بتضمين مجموعة متنوعة من الألعاب والأنشطة التي تجعل رحلة تعلم اللغة العربية مسلية ومحفزة.',
+    featuresTitle: 'الميزات الرئيسية:',
+    feature1: '<strong>تعلم تفاعلي:</strong> انقر على أي حرف لاستكشاف نطقه مع الحركات المختلفة (فتحة، ضمة، كسرة) والمدود.',
+    feature2: '<strong>ألعاب تعليمية متنوعة:</strong> اختبر معلوماتك مع ألعاب مثل "تخمين الحرف"، "ترتيب الكلمات"، و"صائد الكلمات".',
+    feature3: '<strong>نطق صوتي واضح:</strong> استمع إلى النطق الصحيح لكل حرف وكلمة وجملة، مما يساعد على تحسين مهارات الاستماع والنطق.',
+    feature4: '<strong>تتبع التقدم:</strong> شاهد تقدمك وأنت تكمل الأنشطة وتحقق إنجازات جديدة.',
+    feature5: '<strong>محتوى غني بالكلمات والجمل:</strong> لكل حرف، نقدم أمثلة من الكلمات والجمل لتعزيز الفهم وربط الحروف بسياقها.',
+    seoFooter: 'سواء كنت تبدأ من الصفر أو ترغب في تحسين مهاراتك الأساسية، يوفر تطبيقنا بيئة تعليمية آمنة وفعالة. ابدأ رحلتك اليوم واكتشف جمال اللغة العربية!',
+    gamesSectionTitle: 'استكشف ألعابنا التعليمية',
+    gameTitleArrangement: 'لعبة ترتيب الحروف (showWritingGame)',
+    gameDescArrangement: 'تهدف هذه اللعبة إلى تعليم الأطفال كيفية تكوين الكلمات من خلال ترتيب الحروف المبعثرة. يتم عرض مجموعة من الحروف وعلى الطفل سحبها وإفلاتها بالترتيب الصحيح لتشكيل كلمة ذات معنى. تساعد هذه اللعبة على تعزيز المهارات الإملائية وفهم بنية الكلمة.',
+    gameTitleGuess: 'لعبة تخمين الحرف (showGuessGame)',
+    gameDescGuess: 'في هذه اللعبة، يستمع الطفل إلى صوت حرف معين وعليه اختيار الحرف الصحيح من بين عدة خيارات. هذه اللعبة ممتازة لتقوية الربط بين شكل الحرف وصوته، وهي مهارة أساسية في تعلم القراءة.',
+    gameTitleWriting: 'لعبة الكتابة (showWritingPractice)',
+    gameDescWriting: 'تتيح هذه اللعبة للأطفالฝึก كتابة الحروف العربية. يتم عرض الحرف على الشاشة، ويقوم الطفل بكتابته في مربع النص المخصص. يتلقى الطفل تقييمًا فوريًا لمساعدته على تحسين خطه وإتقان شكل الحرف.',
+    gameTitleMoving: 'لعبة الحرف المتحرك (showMovingLetterGame)',
+    gameDescMoving: 'لعبة تفاعلية وممتعة حيث يظهر حرف متحرك على الشاشة مع الحركات المختلفة (فتحة، ضمة، كسرة). تساعد هذه اللعبة على ترسيخ مفهوم الحركات وأثرها على نطق الحرف بطريقة بصرية جذابة.',
+    gameTitleHunter: 'لعبة صائد الكلمات (showWordHunterGame)',
+    gameDescHunter: 'لعبة سريعة ومليئة بالتحدي، حيث يجب على الطفل العثور على الكلمات التي تحتوي على حرف معين خلال فترة زمنية محدودة. هذه اللعبة تطور سرعة القراءة والقدرة على تمييز الحروف داخل الكلمات.',
+    gameTitleSyllable: 'لعبة المقطع الناقص (showMissingSyllableGame)',
+    gameDescSyllable: 'في هذه اللعبة، تُعرض كلمة ينقصها مقطع صوتي، وعلى الطفل اختيار المقطع الصحيح لإكمال الكلمة. تهدف هذه اللعبة إلى تعليم الأطفال عن المقاطع الصوتية وكيفية بناء الكلمات منها.',
+
     tutorial: {
       introTitle: 'مرحباً!',
       languageTitle: 'اللغة',
@@ -249,11 +276,11 @@ const translations = {
     appTitle: 'Learn Arabic Letters with Harakat',
     appDescription: 'Start learning Arabic letters in a fun and interactive way!',
     resetProgress: 'Reset Progress',
-    speakIntro: 'Listen to Introduction',
-    toggleSpeech: 'Disable Sound',
-    toggleSpeechOn: 'Enable Sound',
-    shareSite: 'Share the App with Friends',
-    startQuiz: 'Global Quiz',
+    speakIntro: 'Listen',
+    toggleSpeech: 'Sound',
+    toggleSpeechOn: 'Sound',
+    shareSite: 'Share',
+    startQuiz: 'Quiz',
     errorAudio: 'Error: Unable to play audio. Please check your internet connection and try again.',
     errorAudioFallback: 'Audio playback error. Using fallback sound.',
     errorAudioPermission: 'Please allow audio playback in your browser settings.',
@@ -295,10 +322,37 @@ const translations = {
     imagesDisabled: 'Images are currently disabled',
     errorTutorial: 'Tutorial feature is unavailable.',
     correctWas: 'Correct was:',
-    startTutorial: 'Start Tutorial',
+    startTutorial: 'User Guide',
     errorNoWordsForGame: 'Error: No words available for this game.',
     resetQuiz: 'Restart Quiz',
-    arrangementHint: 'Hint: Starts with "{first}", ends with "{last}"', // Added hint translation
+    arrangementHint: 'Hint: Starts with "{first}", ends with "{last}"',
+    
+    // New translations for static content
+    mainControlsTitle: 'Explore Arabic Letters with Harakat',
+    mainControlsDesc: 'Learn Arabic letters easily through fun educational games with this free interactive app. Perfect for kids and beginners!',
+    seoTitle: 'Why is our app the best choice for learning Arabic?',
+    seoDesc: 'This app is designed to be a comprehensive educational tool helping kids and beginners master Arabic letters and Harakat (diacritics) in an easy and fun way. We believe interactive learning is the key to success, which is why we included a variety of games and activities making the Arabic learning journey entertaining and motivating.',
+    featuresTitle: 'Key Features:',
+    feature1: '<strong>Interactive Learning:</strong> Click on any letter to explore its pronunciation with different Harakat (Fatha, Damma, Kasra) and Madd.',
+    feature2: '<strong>Diverse Educational Games:</strong> Test your knowledge with games like "Guess the Letter", "Word Arrangement", and "Word Hunter".',
+    feature3: '<strong>Clear Audio Pronunciation:</strong> Listen to the correct pronunciation of every letter, word, and sentence, helping improve listening and speaking skills.',
+    feature4: '<strong>Progress Tracking:</strong> Watch your progress as you complete activities and achieve new milestones.',
+    feature5: '<strong>Rich Content with Words and Sentences:</strong> For each letter, we provide examples of words and sentences to reinforce understanding and link letters to context.',
+    seoFooter: 'Whether you are starting from scratch or want to improve your basic skills, our app provides a safe and effective learning environment. Start your journey today and discover the beauty of the Arabic language!',
+    gamesSectionTitle: 'Explore Our Educational Games',
+    gameTitleArrangement: 'Letter Arrangement Game (showWritingGame)',
+    gameDescArrangement: 'This game aims to teach kids how to form words by arranging scattered letters. A set of letters is displayed, and the child must drag and drop them in the correct order to form a meaningful word. This game reinforces spelling skills and understanding of word structure.',
+    gameTitleGuess: 'Guess the Letter Game (showGuessGame)',
+    gameDescGuess: 'In this game, the child listens to the sound of a specific letter and must choose the correct letter from several options. This game is excellent for strengthening the link between the letter\'s shape and its sound, a fundamental skill in learning to read.',
+    gameTitleWriting: 'Writing Game (showWritingPractice)',
+    gameDescWriting: 'This game allows kids to practice writing Arabic letters. The letter is displayed on the screen, and the child writes it in the designated text box. The child receives immediate feedback to help improve their handwriting and master the letter\'s shape.',
+    gameTitleMoving: 'Moving Letter Game (showMovingLetterGame)',
+    gameDescMoving: 'An interactive and fun game where a moving letter appears on the screen with different Harakat (Fatha, Damma, Kasra). This game helps solidify the concept of Harakat and their effect on letter pronunciation in a visually engaging way.',
+    gameTitleHunter: 'Word Hunter Game (showWordHunterGame)',
+    gameDescHunter: 'A fast-paced and challenging game where the child must find words containing a specific letter within a limited time. This game develops reading speed and the ability to distinguish letters within words.',
+    gameTitleSyllable: 'Missing Syllable Game (showMissingSyllableGame)',
+    gameDescSyllable: 'In this game, a word with a missing syllable is displayed, and the child must choose the correct syllable to complete the word. This game aims to teach kids about syllables and how to build words from them.',
+
     tutorial: {
       introTitle: 'Welcome!',
       languageTitle: 'Language',
@@ -761,6 +815,39 @@ function switchLanguage(lang) {
     if (shareBtn) shareBtn.textContent = t('shareSite');
     const tutorialBtn = document.querySelector('button[onclick="startTutorial()"]');
     if (tutorialBtn) tutorialBtn.textContent = t('startTutorial', {}, 'Start Tutorial');
+
+    // Update new static content elements
+    const mainControlsTitle = document.getElementById('main-controls-title');
+    if (mainControlsTitle) mainControlsTitle.textContent = t('mainControlsTitle');
+    const mainControlsDesc = document.getElementById('main-controls-desc');
+    if (mainControlsDesc) mainControlsDesc.textContent = t('mainControlsDesc');
+    
+    const seoTitle = document.getElementById('seo-title');
+    if (seoTitle) seoTitle.textContent = t('seoTitle');
+    const seoDesc = document.getElementById('seo-desc');
+    if (seoDesc) seoDesc.textContent = t('seoDesc');
+    const featuresTitle = document.getElementById('features-title');
+    if (featuresTitle) featuresTitle.textContent = t('featuresTitle');
+    
+    for (let i = 1; i <= 5; i++) {
+        const feature = document.getElementById(`feature-${i}`);
+        if (feature) feature.innerHTML = t(`feature${i}`);
+    }
+    
+    const seoFooter = document.getElementById('seo-footer');
+    if (seoFooter) seoFooter.textContent = t('seoFooter');
+    
+    const gamesSectionTitle = document.getElementById('games-section-title');
+    if (gamesSectionTitle) gamesSectionTitle.textContent = t('gamesSectionTitle');
+    
+    const gameTitles = ['arrangement', 'guess', 'writing', 'moving', 'hunter', 'syllable'];
+    gameTitles.forEach(game => {
+        const title = document.getElementById(`game-title-${game}`);
+        if (title) title.textContent = t(`gameTitle${game.charAt(0).toUpperCase() + game.slice(1)}`);
+        const desc = document.getElementById(`game-desc-${game}`);
+        if (desc) desc.textContent = t(`gameDesc${game.charAt(0).toUpperCase() + game.slice(1)}`);
+    });
+
 
     // Update language switcher buttons state if they exist
     const langBtnAr = document.querySelector('.lang-btn[onclick*="\'ar\'"]');
@@ -3847,61 +3934,6 @@ function resetQuiz() {
   // Ensure reset button remains enabled
   const resetBtn = document.querySelector('#globalQuizModal button[onclick="resetQuiz()"]');
   if (resetBtn) resetBtn.disabled = false;
-}
-
-
-// --- Tutorial Function ---
-
-/** Starts the interactive tutorial using Intro.js */
-function startTutorial() {
-  if (typeof introJs !== 'function') {
-    console.error("Intro.js library not found.");
-    showTemporaryMessage(t('errorTutorial', {}, "Tutorial feature is unavailable."), "warning");
-    return;
-  }
-
-  // Define steps, ensuring elements exist and are visible
-  const steps = [
-    { title: t('tutorial.introTitle', {}, 'Welcome!'), intro: t('tutorial.intro') },
-    { element: document.querySelector('.language-switcher'), title: t('tutorial.languageTitle', {}, 'Language'), intro: t('tutorial.language') },
-    { element: '#lettersContainer', title: t('tutorial.lettersTitle', {}, 'Letters'), intro: t('tutorial.letters'), position: 'top' },
-    // Add step for Harakat modal if possible (might need to open it first)
-    // { element: '#harakatModal .modal-body', title: t('tutorial.harakatTitle', {}, 'Harakat'), intro: t('tutorial.harakat') }, // Example, needs refinement
-    { element: document.querySelector('button[onclick="showGlobalQuiz()"]'), title: t('tutorial.activitiesTitle', {}, 'Activities & Quiz'), intro: t('tutorial.games') + "<br/><br/>" + t('tutorial.quiz') }
-  ];
-
-  // Filter out steps where the element is not found or not visible
-  const validSteps = steps.filter(step => {
-    if (!step.element) return true; // Intro-only step
-    const elem = typeof step.element === 'string' ? document.querySelector(step.element) : step.element;
-    // Check if element exists and has dimensions (is visible)
-    return elem && (elem.offsetWidth > 0 || elem.offsetHeight > 0 || elem.getClientRects().length > 0);
-  });
-
-  if (validSteps.length < steps.length) {
-    console.warn("Some tutorial steps were skipped because their elements were not found or visible.");
-    if (validSteps.length === 0) {
-      showTemporaryMessage("Could not start tutorial: No valid steps found.", "warning");
-      return;
-    }
-  }
-
-  // Configure and start Intro.js
-  try {
-    introJs().setOptions({
-      steps: validSteps,
-      nextLabel: t('next', {}, 'Next &rarr;'),
-      prevLabel: t('prev', {}, '&larr; Previous'),
-      doneLabel: t('done', {}, 'Done'),
-      showProgress: true,
-      showBullets: false,
-      exitOnOverlayClick: false, // Prevent accidental closing
-      tooltipClass: 'custom-introjs-tooltip' // Use custom class from CSS
-    }).start();
-  } catch (error) {
-    console.error("Failed to start Intro.js tutorial:", error);
-    showTemporaryMessage("Error starting tutorial.", "danger");
-  }
 }
 
 

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script>
+    // Ensure app.js uses the correct language for this page
+    localStorage.setItem('language', 'en');
+
+    // Language Redirection Logic
+    (function() {
+      // 1. Check for manually selected language preference
+      var preferredLang = localStorage.getItem('preferredLanguage');
+      if (preferredLang === 'ar') {
+        window.location.href = 'index.html';
+        return;
+      } else if (preferredLang === 'en') {
+        return; // Stay on this page
+      }
+
+      // 2. If no preference, check IP location
+      var arabCountries = ['DZ', 'BH', 'KM', 'DJ', 'EG', 'IQ', 'JO', 'KW', 'LB', 'LY', 'MR', 'MA', 'OM', 'PS', 'QA', 'SA', 'SO', 'SD', 'SY', 'TN', 'AE', 'YE'];
+      
+      fetch('https://ipapi.co/json/')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          var countryCode = data.country_code;
+          if (countryCode && arabCountries.includes(countryCode)) {
+            // If an Arab country, redirect to Arabic version
+            window.location.href = 'index.html';
+          }
+        })
+        .catch(function(error) {
+          console.log('IP Geolocation failed, falling back to browser language', error);
+          // Fallback: Check browser language
+          var userLang = navigator.language || navigator.userLanguage; 
+          if (userLang.startsWith('ar')) {
+            window.location.href = 'index.html';
+          }
+        });
+    })();
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3102074519680675"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title and Meta Description will be updated by JS if needed, but set defaults -->
+  <title id="app-title-tag">Learn Arabic Letters with Harakat | Free Interactive App</title>
+  <meta name="description" id="app-meta-description" content="Learn Arabic letters with Harakat through a free interactive app! Educational games for kids and beginners to develop Arabic language skills.">
+
+  <!-- Other Meta Tags -->
+  <meta name="keywords" content="learn arabic, arabic letters, harakat, educational games, teaching kids, learn arabic language, educational app, interactive learning, learn arabic alphabet, arabic letters with harakat, free educational apps, arabic alphabet games for kids, learn arabic easily, teaching arabic letters to kids, arabic educational tools, interactive app for teaching harakat">
+  <meta name="author" content="Yacine LOTFI">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://arabeez.space/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Learn Arabic Letters with Harakat | Interactive App">
+  <meta property="og:description" content="Try a free interactive app to teach Arabic letters with fun games for kids and beginners.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arabeez.space/">
+  <meta property="og:image" content="https://arabeez.space/images/preview.jpg"> <!-- Ensure this image path is correct -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learn Arabic Letters with Harakat">
+  <meta name="twitter:description" content="Fun educational app to teach Arabic letters with Harakat and games.">
+  <meta name="twitter:image" content="https://arabeez.space/images/preview.jpg"> <!-- Ensure this image path is correct -->
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalApplication",
+      "name": "Learn Arabic Letters with Harakat",
+      "description": "Interactive educational app to teach Arabic letters with Harakat and games for kids and beginners.",
+      "url": "https://arabeez.space/",
+      "author": {"@type": "Person", "name": "Yacine LOTFI"},
+      "inLanguage": "en",
+      "learningResourceType": "Interactive Tool",
+      "typicalAgeRange": "3-12"
+    }
+  </script>
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wiW5oaDSLFkIl92vHokAbsTxTApya4HLb++fV3w9AUJalJUpE4MOBvDBcHsdrFvnkR7Kc6JSt3LcvNQ==" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> <!-- Link to your custom CSS -->
+  <link rel="stylesheet" href="css/animations.css"> <!-- Link to animations CSS -->
+  <style>
+    .hamburger-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1rem; /* Changed to right for LTR */
+      z-index: 1000;
+    }
+    .hamburger-icon {
+      width: 30px;
+      height: 22px;
+      position: relative;
+      cursor: pointer;
+    }
+    .hamburger-icon span {
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: #333;
+      border-radius: 2px;
+      opacity: 1;
+      left: 0;
+      transition: .25s ease-in-out;
+    }
+    .hamburger-icon span:nth-child(1) { top: 0px; }
+    .hamburger-icon span:nth-child(2) { top: 9px; }
+    .hamburger-icon span:nth-child(3) { top: 18px; }
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -300px; /* Changed to right for LTR */
+      width: 300px;
+      height: 100%;
+      background-color: #f8f9fa;
+      padding-top: 60px;
+      transition: right .5s ease; /* Changed to right for LTR */
+      z-index: 999;
+    }
+    .nav-menu.active {
+      right: 0; /* Changed to right for LTR */
+    }
+    .nav-menu ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .nav-menu ul li {
+      padding: 15px 20px;
+    }
+    .nav-menu ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body class="py-4">
+
+<!-- Hamburger Menu -->
+<div class="hamburger-menu">
+  <div class="hamburger-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<!-- Navigation Menu -->
+<div class="nav-menu" id="nav-menu">
+  <ul>
+    <li><a href="articles.html">Articles / مقالات</a></li>
+    <li><a href="sitemap.html">Sitemap / خريطة الموقع</a></li>
+    <li><a href="#" class="i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a></li>
+    <li><a href="#" class="i18n-link" data-page="terms">Terms / شروط الاستخدام</a></li>
+    <li><a href="#" class="i18n-link" data-page="about">About / من نحن</a></li>
+    <li><a href="#" class="i18n-link" data-page="contact">Contact / تواصل معنا</a></li>
+    <li class="text-center">
+      <button class="btn btn-sm btn-secondary lang-btn" onclick="switchLanguage('en')" aria-label="Switch to English">EN</button>
+      <button class="btn btn-sm btn-secondary lang-btn" onclick="switchLanguage('ar')" aria-label="Switch to Arabic">AR</button>
+    </li>
+  </ul>
+</div>
+
+<!-- Skip Link for Accessibility -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<header class="container text-center mb-4">
+  <!-- Language Switcher -->
+  <!-- App Title and Description -->
+  <h1 class="animate__animated animate__fadeInDown" id="app-title">Learn Arabic Letters with Harakat</h1>
+  <p class="lead" id="app-description">Start learning Arabic letters now in a fun and interactive way!</p>
+
+  <!-- Tutorial Button -->
+  <button class="btn btn-info mb-3" onclick="startTutorial()" aria-label="Start Tutorial">
+    User Guide
+  </button>
+</header>
+
+<!-- Progress Bar -->
+<div class="container mb-4">
+  <div class="progress shadow-sm" style="height: 25px;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0% Complete">
+    <div id="progress" class="progress-bar progress-bar-striped bg-success" style="width: 0%">0%</div>
+  </div>
+</div>
+
+<main id="main-content" class="container">
+  <!-- Main Controls -->
+  <section class="text-center mb-4">
+    <h2>Explore Arabic Letters with Harakat</h2>
+    <p>Learn Arabic letters easily through fun educational games with this free interactive app. Perfect for kids and beginners!</p>
+    
+    <!-- Buttons - Small, positioned below image -->
+    <div class="d-flex flex-wrap justify-content-center gap-1 mb-4" style="font-size: 0.85rem;">
+      <button class="btn btn-sm btn-secondary" onclick="resetProgress()">Reset Progress</button>
+      <button class="btn btn-sm btn-primary" onclick="speakIntro()">Listen</button>
+      <button class="btn btn-sm btn-toggle-speech" id="toggleSpeechBtn" onclick="toggleSpeech()">Sound</button>
+      <button class="btn btn-sm btn-info" onclick="showGlobalQuiz()">Quiz</button>
+      <button class="btn btn-sm btn-primary" onclick="shareSite()">Share</button>
+      <button class="btn btn-sm btn-warning" onclick="goToSitemap()">Sitemap</button>
+    </div>
+  </section>
+
+  <!-- Static Content for SEO -->
+  <section class="static-content-seo p-4 mb-5 border rounded">
+    <h3 class="mb-3">Why is our app the best choice for learning Arabic?</h3>
+    <p>This app is designed to be a comprehensive educational tool helping kids and beginners master Arabic letters and Harakat (diacritics) in an easy and fun way. We believe interactive learning is the key to success, which is why we included a variety of games and activities making the Arabic learning journey entertaining and motivating.</p>
+    
+    <h4>Key Features:</h4>
+    <ul>
+      <li><strong>Interactive Learning:</strong> Click on any letter to explore its pronunciation with different Harakat (Fatha, Damma, Kasra) and Madd.</li>
+      <li><strong>Diverse Educational Games:</strong> Test your knowledge with games like "Guess the Letter", "Word Arrangement", and "Word Hunter".</li>
+      <li><strong>Clear Audio Pronunciation:</strong> Listen to the correct pronunciation of every letter, word, and sentence, helping improve listening and speaking skills.</li>
+      <li><strong>Progress Tracking:</strong> Watch your progress as you complete activities and achieve new milestones.</li>
+      <li><strong>Rich Content with Words and Sentences:</strong> For each letter, we provide examples of words and sentences to reinforce understanding and link letters to context.</li>
+    </ul>
+    <p>Whether you are starting from scratch or want to improve your basic skills, our app provides a safe and effective learning environment. Start your journey today and discover the beauty of the Arabic language!</p>
+  </section>
+
+  <!-- Letter Grid -->
+  <section>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 justify-content-center" id="lettersContainer">
+      <!-- Letter cards will be generated here by JavaScript -->
+      <div class="text-center p-4"><p>Loading letters...</p><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>
+    </div>
+  </section>
+
+  <!-- Games Description Section -->
+  <section class="games-description p-4 my-5 border rounded">
+    <h2 class="text-center mb-4">Explore Our Educational Games</h2>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>Letter Arrangement Game (showWritingGame)</h4>
+        <p>This game aims to teach kids how to form words by arranging scattered letters. A set of letters is displayed, and the child must drag and drop them in the correct order to form a meaningful word. This game reinforces spelling skills and understanding of word structure.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>Guess the Letter Game (showGuessGame)</h4>
+        <p>In this game, the child listens to the sound of a specific letter and must choose the correct letter from several options. This game is excellent for strengthening the link between the letter's shape and its sound, a fundamental skill in learning to read.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>Writing Game (showWritingPractice)</h4>
+        <p>This game allows kids to practice writing Arabic letters. The letter is displayed on the screen, and the child writes it in the designated text box. The child receives immediate feedback to help improve their handwriting and master the letter's shape.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>Moving Letter Game (showMovingLetterGame)</h4>
+        <p>An interactive and fun game where a moving letter appears on the screen with different Harakat (Fatha, Damma, Kasra). This game helps solidify the concept of Harakat and their effect on letter pronunciation in a visually engaging way.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>Word Hunter Game (showWordHunterGame)</h4>
+        <p>A fast-paced and challenging game where the child must find words containing a specific letter within a limited time. This game develops reading speed and the ability to distinguish letters within words.</p>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <h4>Missing Syllable Game (showMissingSyllableGame)</h4>
+        <p>In this game, a word with a missing syllable is displayed, and the child must choose the correct syllable to complete the word. This game aims to teach kids about syllables and how to build words from them.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Modals -->
+
+<!-- Harakat Selection Modal -->
+<div class="modal fade" id="harakatModal" tabindex="-1" aria-labelledby="harakatModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h2 class="modal-title fs-5" id="harakatModalLabel">Choose Haraka</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div id="selectedLetter" class="haraka-display text-primary mb-3" aria-live="polite"></div>
+        <button class="btn btn-secondary btn-sm mb-4" onclick="speakSelectedLetter()">Listen to Letter</button>
+
+        <!-- Harakat Buttons -->
+        <div class="row g-2 mb-3">
+          <div class="col-4"><button class="btn btn-success haraka-btn w-100" data-bs-toggle="tooltip" title="Fatha" onclick="applyHaraka('َ')" aria-label="Fatha">Fatha</button></div>
+          <div class="col-4"><button class="btn btn-success haraka-btn w-100" data-bs-toggle="tooltip" title="Damma" onclick="applyHaraka('ُ')" aria-label="Damma">Damma</button></div>
+          <div class="col-4"><button class="btn btn-success haraka-btn w-100" data-bs-toggle="tooltip" title="Kasra" onclick="applyHaraka('ِ')" aria-label="Kasra">Kasra</button></div>
+          <div class="col-4"><button class="btn btn-info haraka-btn w-100" data-bs-toggle="tooltip" title="Tanween Fath" onclick="applyTanween('ً')" aria-label="Tanween Fath">Tanween Fath</button></div>
+          <div class="col-4"><button class="btn btn-info haraka-btn w-100" data-bs-toggle="tooltip" title="Tanween Damm" onclick="applyTanween('ٌ')" aria-label="Tanween Damm">Tanween Damm</button></div>
+          <div class="col-4"><button class="btn btn-info haraka-btn w-100" data-bs-toggle="tooltip" title="Tanween Kasr" onclick="applyTanween('ٍ')" aria-label="Tanween Kasr">Tanween Kasr</button></div>
+          <div class="col-4"><button class="btn btn-warning haraka-btn w-100" data-bs-toggle="tooltip" title="Alif Madd" onclick="applyLongHaraka('ا')" aria-label="Alif Madd">Alif Madd</button></div>
+          <div class="col-4"><button class="btn btn-warning haraka-btn w-100" data-bs-toggle="tooltip" title="Waw Madd" onclick="applyLongHaraka('و')" aria-label="Waw Madd">Waw Madd</button></div>
+          <div class="col-4"><button class="btn btn-warning haraka-btn w-100" data-bs-toggle="tooltip" title="Ya Madd" onclick="applyLongHaraka('ي')" aria-label="Ya Madd">Ya Madd</button></div>
+        </div>
+      </div>
+      <!-- Activity Buttons -->
+      <div class="modal-footer d-flex flex-wrap justify-content-center gap-2">
+        <button class="btn btn-purple btn-sm" onclick="showWords()">Show Words</button>
+        <button class="btn btn-purple btn-sm" onclick="showPhrases()">Show Phrases</button>
+        <button class="btn btn-warning btn-sm" onclick="showWritingGame()">Arrangement Game</button>
+        <button class="btn btn-info btn-sm" onclick="showGuessGame()">Guess Game</button>
+        <button class="btn btn-success btn-sm" onclick="showWritingPractice()">Writing Game</button>
+        <button class="btn btn-purple btn-sm" onclick="showMovingLetterGame()">Moving Letter</button>
+        <button class="btn btn-info btn-sm" onclick="showWordHunterGame()">Word Hunter</button>
+        <button class="btn btn-success btn-sm" onclick="showMissingSyllableGame()">Missing Syllable</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Words Modal -->
+<div class="modal fade" id="wordsModal" tabindex="-1" aria-labelledby="wordsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h2 class="modal-title fs-5" id="wordsModalLabel">Words containing <span id="currentWordLetter"></span></h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 id="currentWord" class="display-5 mb-3 animate__animated" aria-live="polite"></h3>
+        <div id="wordImageContainer" class="mb-3" style="min-height: 150px;" aria-live="polite">
+          <!-- Image or loading indicator here -->
+        </div>
+        <div class="d-flex justify-content-center gap-2 mb-3">
+          <button class="btn btn-secondary btn-sm" onclick="playCurrentWord()">Play Pronunciation</button>
+          <button class="btn btn-toggle-image btn-sm" id="toggleImageBtn" onclick="toggleWordImage()">Hide Image</button>
+        </div>
+        <div class="word-counter mb-3" id="wordCounter"></div>
+        <div class="navigation-buttons d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousWord()" id="prevBtn">Previous</button>
+          <button class="btn btn-primary btn-sm" onclick="nextWord()" id="nextBtn">Next</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">Back</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Phrases Modal -->
+<div class="modal fade" id="phrasesModal" tabindex="-1" aria-labelledby="phrasesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white"> <!-- Changed to match words modal header -->
+        <h2 class="modal-title fs-5" id="phrasesModalLabel">Phrases containing <span id="currentPhraseLetter"></span></h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 id="currentPhrase" class="display-6 mb-4 animate__animated" aria-live="polite"></h3> <!-- Adjusted size -->
+        <button class="btn btn-secondary btn-sm mb-3" onclick="playCurrentPhrase()">Play Pronunciation</button>
+        <div class="phrase-counter mb-3" id="phraseCounter"></div>
+        <div class="navigation-buttons d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousPhrase()" id="phrasePrevBtn">Previous</button>
+          <button class="btn btn-primary btn-sm" onclick="nextPhrase()" id="phraseNextBtn">Next</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">Back</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Writing Game (Arrangement) Modal -->
+<div class="modal fade" id="writingModal" tabindex="-1" aria-labelledby="writingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h2 class="modal-title fs-5" id="writingModalLabel">Arrange letters to make a word containing <span id="gameWordLetter"></span></h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="scrambled-letters mb-3" id="scrambledLetters" style="min-height: 60px;">
+          <!-- Scrambled letter tiles here -->
+        </div>
+        <div class="selected-letters border p-3 rounded mb-3 bg-light" id="selectedLetters" style="min-height: 60px; direction: rtl;">
+          <!-- Selected letter tiles here -->
+        </div>
+        <div class="check-buttons d-flex justify-content-center gap-2 mb-3">
+          <button class="btn btn-success btn-sm" onclick="checkArrangement()">Check</button>
+          <button class="btn btn-warning btn-sm" onclick="resetLetters()">Reset</button>
+          <button class="btn btn-info btn-sm" onclick="showHint()">Hint</button>
+        </div>
+        <div class="feedback-message mt-2 small" id="writingGameFeedback" aria-live="polite"></div> <!-- Added ID -->
+        <div class="game-word-counter mt-2" id="gameWordCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousGameWord()" id="gamePrevBtn">Previous</button>
+          <button class="btn btn-primary btn-sm" onclick="nextGameWord()" id="gameNextBtn">Next</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">Back</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Guess Letter Modal -->
+<div class="modal fade" id="guessLetterModal" tabindex="-1" aria-labelledby="guessLetterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-warning text-dark"> <!-- Changed text color for contrast -->
+        <h2 class="modal-title fs-5" id="guessLetterModalLabel">Guess the Letter</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <button class="btn btn-primary btn-sm mb-4" onclick="playGuessSound()" id="playGuessSoundBtn">Listen to Sound</button> <!-- Added ID -->
+        <div class="guess-options d-flex flex-wrap justify-content-center gap-2 mb-3" id="guessOptions" style="min-height: 60px;">
+          <!-- Guess options here -->
+        </div>
+        <div class="guess-feedback mt-2 small" id="guessFeedback" aria-live="polite"></div>
+        <div class="guess-counter mt-2" id="guessCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousGuess()" id="guessPrevBtn">Previous</button>
+          <button class="btn btn-primary btn-sm" onclick="nextGuess()" id="guessNextBtn">Next</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">Back</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Writing Practice Modal -->
+<div class="modal fade" id="writingPracticeModal" tabindex="-1" aria-labelledby="writingPracticeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h2 class="modal-title fs-5" id="writingPracticeModalLabel">Write the Letter</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 id="targetLetter" class="display-5 mb-4"></h3>
+        <label for="userInput" class="visually-hidden">Write the letter here</label>
+        <input type="text" id="userInput" class="form-control form-control-lg mb-3 w-50 mx-auto" placeholder="Write the letter here" dir="rtl" lang="ar" maxlength="3" autocomplete="off" spellcheck="false"> <!-- Adjusted size, added lang -->
+        <button class="btn btn-primary btn-sm mb-3" onclick="checkWriting()">Check</button>
+        <div class="writing-feedback mt-2 small" id="writingFeedback" aria-live="polite"></div>
+        <div class="writing-counter mt-2" id="writingCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousWriting()" id="writingPrevBtn">Previous</button>
+          <button class="btn btn-primary btn-sm" onclick="nextWriting()" id="writingNextBtn">Next</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">Back</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Moving Letter Modal -->
+<div class="modal fade" id="movingLetterModal" tabindex="-1" aria-labelledby="movingLetterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-purple text-white">
+        <h2 class="modal-title fs-5" id="movingLetterModalLabel">Moving Letter</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <!-- Display area for the base letter (optional) -->
+        <div class="harakat-display mb-4 fs-4" id="harakatList"></div>
+        <!-- Container for the moving letter -->
+        <div class="moving-letter-container mb-4 border rounded p-3" style="min-height: 80px;">
+          <span id="movingLetter" class="moving-letter display-4"></span>
+        </div>
+        <!-- Letter Selection Dropdown -->
+        <label for="letterSelect" class="visually-hidden">Choose a letter</label>
+        <select id="letterSelect" class="form-select form-select-lg mb-3 w-50 mx-auto" dir="rtl" lang="ar">
+          <option value="" disabled>Choose a letter</option>
+          <!-- Options populated by JS -->
+        </select>
+        <!-- Control Buttons -->
+        <div class="d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="startMovingLetter()">Start Movement</button>
+          <button class="btn btn-warning btn-sm" onclick="stopMovingLetter()">Stop</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">Back</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Word Hunter Modal -->
+<div class="modal fade" id="wordHunterModal" tabindex="-1" aria-labelledby="wordHunterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h2 class="modal-title fs-5" id="wordHunterModalLabel">Word Hunter</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 class="fs-5 mb-2">Choose words containing the letter: <span id="hunterTargetLetter" class="fw-bold display-6"></span></h3>
+        <div class="hunter-timer mt-2 mb-3 fw-bold" id="hunterTimer">Time Remaining: 30s</div>
+        <div class="word-options d-flex flex-wrap justify-content-center gap-2 mb-3" id="wordOptions" style="min-height: 100px;">
+          <!-- Word options here -->
+        </div>
+        <div class="hunter-feedback mt-2 small" id="hunterFeedback" aria-live="polite"></div>
+        <div class="hunter-score mt-2 fw-bold" id="hunterScore">Score: 0</div>
+        <!-- Removed the redundant check button as logic checks on click -->
+        <!-- <button class="btn btn-primary btn-sm mt-3" onclick="checkHunterSelection()">Check</button> -->
+        <button class="btn btn-warning btn-sm mt-3" onclick="resetHunterGame()">Reset</button>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">Back</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Missing Syllable Modal -->
+<div class="modal fade" id="missingSyllableModal" tabindex="-1" aria-labelledby="missingSyllableModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h2 class="modal-title fs-5" id="missingSyllableModalLabel">Missing Syllable</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 class="fs-5 mb-3">Complete the word starting with the letter: <span id="missingSyllableLetter" class="fw-bold display-6"></span></h3>
+        <div id="incompleteWord" class="display-5 mb-4" aria-live="polite" style="direction: rtl; min-height: 60px;">
+          <!-- Incomplete word here -->
+        </div>
+        <div class="syllable-options d-flex flex-wrap justify-content-center gap-2 mb-3" id="syllableOptions" style="min-height: 60px;">
+          <!-- Syllable options here -->
+        </div>
+        <div class="syllable-feedback mt-2 small" id="syllableFeedback" aria-live="polite"></div>
+        <div class="syllable-counter mt-2" id="syllableCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousSyllable()" id="syllablePrevBtn">Previous</button>
+          <button class="btn btn-primary btn-sm" onclick="nextSyllable()" id="syllableNextBtn">Next</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-secondary btn-sm" onclick="backToHarakatModal()">Back</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Global Quiz Modal -->
+<div class="modal fade" id="globalQuizModal" tabindex="-1" aria-labelledby="globalQuizModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-purple text-white">
+        <h2 class="modal-title fs-5" id="globalQuizModalLabel">Global Quiz</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 id="quizQuestion" class="mb-3 quiz-question-display" aria-live="polite"></h3> <!-- Class added by JS -->
+        <button class="btn btn-primary btn-sm mb-4" onclick="playQuizSound()">Listen to Sound</button>
+        <div class="quiz-options d-flex flex-wrap justify-content-center gap-2 mb-3" id="quizOptions" style="min-height: 100px;">
+          <!-- Quiz options here -->
+        </div>
+        <div class="quiz-feedback mt-2 small" id="quizFeedback" aria-live="polite"></div>
+        <div class="quiz-score mt-2 fw-bold" id="quizScore">Score: 0</div>
+        <div class="quiz-counter mt-2" id="quizCounter"></div>
+        <div class="navigation-buttons mt-3 d-flex justify-content-center gap-2">
+          <button class="btn btn-primary btn-sm" onclick="previousQuizQuestion()" id="quizPrevBtn">Previous</button>
+          <button class="btn btn-primary btn-sm" onclick="nextQuizQuestion()" id="quizNextBtn">Next</button>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button class="btn btn-warning btn-sm" onclick="resetQuiz()">Restart Quiz</button>
+        <button class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Audio Player -->
+<audio id="audioPlayer" preload="auto"></audio> <!-- Added preload -->
+
+<!-- Footer -->
+<footer class="text-center mt-5 py-3">
+  <div class="container">
+    <div class="mb-3">
+      <!-- Liens gérés par JS pour naviguer vers pages légales -->
+      <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="about">About / من نحن</a>
+      <a href="articles.html" class="btn btn-sm btn-outline-secondary me-1">Articles / مقالات</a>
+      <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="privacy">Privacy / سياسة الخصوصية</a>
+      <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="terms">Terms / شروط الاستخدام</a>
+      <a href="#" class="btn btn-sm btn-outline-secondary me-1 i18n-link" data-page="disclaimer">Disclaimer / تحفظات</a>
+      <a href="#" class="btn btn-sm btn-outline-secondary i18n-link" data-page="contact">Contact / تواصل معنا</a>
+    </div>
+    <p>Developed by Yacine LOTFI</p>
+    <p><a href="https://www.facebook.com/yacinelotfi199/" target="_blank" rel="noopener noreferrer">Contact me on Facebook</a></p>
+    <p>Discover free Arabic educational tools for teaching letters to kids!</p>
+  </div>
+</footer>
+
+<!-- Achievement Toast Container -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="achievementToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-white">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-trophy' viewBox='0 0 16 16'%3E%3Cpath d='M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935zM3.504 1c.007.517.026 1.006.056 1.469.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.501.501 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667.03-.463.049-.952.056-1.469H3.504z'/%3E%3C/svg%3E" class="rounded me-2" alt="Trophy">
+      <strong class="me-auto" id="achievementTitle">New Achievement!</strong>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body bg-light" id="achievementMessage">
+      Well done! You have completed a new task.
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<!-- DOMPurify included but not actively used by current JS - good for future safety -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+<!-- Web Share Shim for broader share compatibility -->
+<script src="https://cdn.jsdelivr.net/npm/web-share-shim@0.2.0/dist/web-share-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+
+<!-- Your Custom JavaScript -->
+<script src="js/app.js"></script>
+<script src="js/pexels.js"></script>
+<script src="js/visual-effects.js"></script>
+
+<!-- Language handling & Sitemap function -->
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+  }
+
+  // Fonction pour naviguer vers la page sitemap
+  window.goToSitemap = function() {
+    window.location.href = './sitemap.html';
+  };
+
+  (function () {
+    // gérer les liens du footer pour ouvrir la version correcte (en/ar) DANS PAGES/
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.i18n-link').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var page = el.dataset.page || 'privacy';
+          var currentLang = document.documentElement.lang || 'en'; // Use current language
+          var lang = (currentLang === 'en') ? 'en' : 'ar';
+          
+          // Construire l'URL correcte vers les pages légales
+          var target = './pages/' + page + '-' + lang + '.html';
+          
+          // Fallback pour les pages qui pourraient ne pas exister
+          if (page === 'about' && lang === 'ar') {
+            target = './pages/about-ar.html'; 
+          } else if (page === 'about' && lang === 'en') {
+            target = './pages/about-en.html';
+          }
+          
+          console.log('Navigating to:', target);
+          window.location.href = target;
+        });
+      });
+    });
+  })();
+  
+  // Language Switcher Logic
+  function switchLanguage(lang) {
+    localStorage.setItem('preferredLanguage', lang);
+    localStorage.setItem('language', lang); // Ensure app.js picks up the change
+    if (lang === 'ar') {
+      window.location.href = 'index.html';
+    } else {
+      window.location.href = 'index-en.html';
+    }
+  }
+</script>
+
+</body>
+</html>
