@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>جولة في اللهجات العربية (الجزء الأول): اللهجة الشامية</title>
-  <meta name="description" content="استكشف خصائص اللهجة الشامية (اللبنانية، السورية، الأردنية، الفلسطينية)، وأهميتها، وبعض العبارات الشائعة.">
+  <meta name="description" content="دليل شامل للهجة الشامية (السورية، اللبنانية، الأردنية، الفلسطينية). تعلم أهم العبارات، قواعد النطق، والفرق بينها وبين الفصحى.">
   <meta name="author" content="Yacine LOTFI">
   
   <!-- Bootstrap CSS -->
@@ -42,6 +42,40 @@
     }
     p { margin-bottom: 1rem; color: #555; }
     ul { margin-bottom: 1rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: 600;
+    }
+    blockquote {
+      border-right: 5px solid #198754;
+      padding-right: 20px;
+      margin: 30px 0;
+      font-style: italic;
+      color: #555;
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .highlight-box {
+      background-color: #e8f4fd;
+      border: 2px dashed #0d6efd;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+    .faq-section .accordion-button {
+        font-weight: bold;
+    }
     .nav-button { 
       display: inline-block; 
       margin-top: 1.5rem; 
@@ -55,6 +89,33 @@
     }
     .nav-button:hover { background: #0052a3; color: white; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://arabeez.space/blog/posts/levantine-arabic-dialect.html"
+    },
+    "headline": "جولة في اللهجات العربية (الجزء الأول): اللهجة الشامية",
+    "description": "دليل شامل للهجة الشامية (السورية، اللبنانية، الأردنية، الفلسطينية). تعلم أهم العبارات، قواعد النطق، والفرق بينها وبين الفصحى.",
+    "image": "https://arabeez.space/images/levantine-dialect.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Yacine LOTFI"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arabeez.space",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://arabeez.space/icon.svg"
+      }
+    },
+    "datePublished": "2024-01-17",
+    "dateModified": "2024-01-17"
+  }
+  </script>
 </head>
 <body>
   <!-- Hamburger Menu -->
@@ -82,20 +143,42 @@
     <main>
       <h1>جولة في اللهجات العربية (الجزء الأول): اللهجة الشامية</h1>
       
+      <div id="article-image-container" class="mb-4">
+        <img src="https://images.pexels.com/photos/2406731/pexels-photo-2406731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="منظر بانورامي لمدينة بيروت القديمة" class="img-fluid rounded shadow-sm w-100">
+      </div>
+
       <p>العالم العربي فسيفساء غنية من الثقافات والتقاليد، وتتجسد هذه الثراء بشكل واضح في تنوع اللهجات العربية. على الرغم من وجود اللغة العربية الفصحى الحديثة كلغة موحدة للكتابة والإعلام الرسمي، إلا أن الحياة اليومية تنبض باللهجات العامية التي تختلف بشكل كبير من منطقة لأخرى. في هذا الجزء الأول من جولتنا، سنغوص في أعماق "اللهجة الشامية"، التي يتحدث بها سكان بلاد الشام: سوريا، لبنان، الأردن، وفلسطين.</p>
 
       <h2>ما هي اللهجة الشامية؟</h2>
       <p>اللهجة الشامية، أو اللهجة السورية-اللبنانية-الفلسطينية-الأردنية، هي مجموعة من اللهجات المتقاربة التي تشترك في العديد من الخصائص الصوتية والنحوية والمفردات. تُعتبر هذه اللهجة من اللهجات المفهومة نسبيًا في العالم العربي، ويرجع ذلك جزئيًا إلى انتشار الدراما والأغاني الشامية.</p>
 
-      <h2>خصائص اللهجة الشامية</h2>
-      <p>تتميز اللهجة الشامية بعدة خصائص مميزة:</p>
+      <h2>خصائص اللهجة الشامية: كيف تميزها؟</h2>
+      <p>تتميز اللهجة الشامية بعدة خصائص مميزة تجعلها سهلة التعرف:</p>
       <ul>
-        <li><strong>نطق القاف كهمزة:</strong> في معظم مناطق الشام، تُنطق حرف القاف كهمزة (ء). فكلمة "قمر" تُصبح "أمر"، و"قلب" تُصبح "ألب".</li>
-        <li><strong>نطق الجيم كجيم مصرية:</strong> في بعض المناطق، خاصة في لبنان وسوريا، يُنطق حرف الجيم كـ "ج" المصرية (مثل حرف G في "Good").</li>
-        <li><strong>استخدام "ش" للنفي:</strong> تُستخدم "ش" في نهاية الفعل للنفي، مثل "ما بعرفش" (لا أعرف) بدلاً من "لا أعرف" في الفصحى.</li>
-        <li><strong>استخدام "في" بدلاً من "يوجد":</strong> كلمة "في" تُستخدم بمعنى "يوجد" أو "هناك"، مثل "في قهوة؟" (هل توجد قهوة؟).</li>
-        <li><strong>المفردات المشتركة:</strong> تشترك اللهجات الشامية في العديد من المفردات التي قد تختلف عن الفصحى أو اللهجات الأخرى، مثل "هلق" (الآن)، "شوب" (ماذا)، "كيفك" (كيف حالك).</li>
+        <li><strong>نطق القاف كهمزة:</strong> في معظم المدن (دمشق، بيروت، القدس)، تُنطق حرف القاف كهمزة (ء). فكلمة "قمر" تُصبح "أمر"، و"قلب" تُصبح "ألب". (ملاحظة: في المناطق الريفية والبدوية، قد يُنطق القاف كـ "G").</li>
+        <li><strong>نطق الجيم:</strong> في لبنان وسوريا، تكون الجيم ناعمة (مثل j في French "bonjour").</li>
+        <li><strong>الكلمات المفتاحية:</strong> كلمات مثل "هلق" (الآن)، "شوب" (حر)، "كيفك" (كيف حالك) هي علامات مميزة.</li>
       </ul>
+
+      <div class="highlight-box">
+        <h3>مقارنة: الفصحى vs الشامية</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>الكلمة (فصحى)</th>
+              <th>الكلمة (شامية)</th>
+              <th>المعنى</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ماذا؟</td><td>شو؟</td><td>What?</td></tr>
+            <tr><td>الآن</td><td>هلّق</td><td>Now</td></tr>
+            <tr><td>أريد</td><td>بدّي</td><td>I want</td></tr>
+            <tr><td>جميل</td><td>حلو</td><td>Beautiful</td></tr>
+            <tr><td>كثيرًا</td><td>كتير</td><td>A lot</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>أمثلة وعبارات شائعة</h2>
       <p>إليك بعض العبارات الشامية الشائعة التي قد تسمعها:</p>
@@ -109,11 +192,58 @@
         <li><strong>يلا!</strong> (هيا!) - تستخدم للحث على فعل شيء.</li>
       </ul>
 
-      <h2>التنوع داخل اللهجة الشامية</h2>
-      <p>حتى داخل بلاد الشام، توجد اختلافات دقيقة بين اللهجات. فاللهجة اللبنانية قد تختلف قليلاً عن السورية، والأردنية عن الفلسطينية. هذه الاختلافات غالبًا ما تكون في النطق وبعض المفردات، لكنها لا تمنع الفهم المتبادل بين المتحدثين.</p>
+      <div class="highlight-box">
+        <h3>سيناريو: في مقهى ببيروت</h3>
+        <p><strong>الزبون:</strong> "مرحبا، في مجال تعطيني منيو؟" (مرحبا، هل يمكنني الحصول على القائمة؟)<br>
+        <strong>النادل:</strong> "أكيد، تكرم عينك. شو بتحب تشرب؟" (بالتأكيد، من عيوني. ماذا تحب أن تشرب؟)<br>
+        <strong>الزبون:</strong> "بدّي قهوة وسط، لو سمحت." (أريد قهوة بسكر متوسط، من فضلك.)</p>
+      </div>
 
-      <h2>لماذا تتعلم اللهجة الشامية؟</h2>
-      <p>إذا كنت تخطط للسفر إلى أي من دول الشام، أو لديك أصدقاء ومعارف من هذه المنطقة، فإن تعلم اللهجة الشامية سيفتح لك أبوابًا للتواصل الثقافي العميق. كما أن انتشار الدراما والأغاني الشامية يجعلها نقطة انطلاق ممتازة للمبتدئين في تعلم اللهجات.</p>
+      <h2>قصة نجاح: كارلوس والعائلة</h2>
+      <blockquote>
+        "كارلوس، من أصول مكسيكية، تزوج من فتاة أردنية. كان يجد صعوبة في التواصل مع حماته التي لا تتحدث الإنجليزية. قرر تعلم اللهجة الشامية بدلاً من الفصحى. بعد أشهر، فاجأ العائلة في عشاء بقوله: 'يسلمو ايديكي يا خالتو، الأكل كتير زاكي!' (سلمت يداك يا خالتي، الأكل لذيذ جداً). كانت تلك اللحظة نقطة تحول في علاقته مع العائلة بأكملها."
+      </blockquote>
+
+      <h2>أسئلة شائعة (FAQ)</h2>
+      <div class="accordion faq-section" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              هل سيفهمني المصريون إذا تحدثت الشامية؟
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              نعم، بنسبة كبيرة جدًا. بسبب انتشار المسلسلات السورية واللبنانية، اللهجة الشامية مفهومة على نطاق واسع في العالم العربي.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              هل يجب أن أتعلم الفصحى قبل الشامية؟
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              يُفضل ذلك. الفصحى تعطيك الأساس القوي (القراءة والكتابة). الشامية أسهل للتعلم لاحقًا "كسكر" إضافي للمحادثة.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                هل هناك مصادر لتعلم الشامية؟
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                نعم، هناك العديد من الكتب (مثل "Colloquial Arabic of the Levant") وقنوات يوتيوب ومسلسلات (مثل "باب الحارة" أو "الهيبة") التي تعتبر مصادر ممتازة.
+              </div>
+            </div>
+        </div>
+      </div>
+
       <p>تذكر أن تعلم اللهجة هو إضافة رائعة لمهاراتك في اللغة العربية الفصحى. ابدأ بالاستماع، وحاول تقليد النطق، ولا تخف من ارتكاب الأخطاء. كل خطوة تقربك من إتقان هذه اللغة الجميلة.</p>
 
       <div class="footer-nav">
@@ -121,6 +251,7 @@
       </div>
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <script src="../../js/menu.js"></script>
 </body>
 </html>

@@ -3,170 +3,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عبقرية النظام الاشتقاقي: تحليل معمق للجذر الثلاثي</title>
+  <title>عبقرية النظام الاشتقاقي في العربية: كيف تبني ألف كلمة من جذر واحد</title>
+  <meta name="description" content="اكتشف عبقرية نظام الاشتقاق في اللغة العربية. تعلم كيف يولد الجذر الثلاثي آلاف الكلمات، وضاعف مفرداتك بجهد أقل مع أمثلة عملية.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
   <style>
     body {
       font-family: 'Kufam', sans-serif;
-      line-height: 1.8;
+      line-height: 1.9;
       color: #333;
+      background-color: #f9f9f9;
     }
     .article-container {
       max-width: 900px;
       margin: 40px auto;
-      padding: 30px;
+      padding: 40px;
       background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-    h1, h2, h3 {
-      color: #0056b3;
-      margin-bottom: 20px;
-      font-weight: 700;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
     h1 {
+      color: #2c3e50;
+      font-weight: 800;
       font-size: 2.5rem;
+      margin-bottom: 1.5rem;
       text-align: center;
+      line-height: 1.3;
     }
     h2 {
-      font-size: 2rem;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-      margin-top: 40px;
+      color: #0d6efd;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.2rem;
+      border-right: 5px solid #ffc107;
+      padding-right: 15px;
     }
     h3 {
-      font-size: 1.75rem;
-      margin-top: 30px;
+      color: #198754;
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
-    p {
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-    }
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      margin-bottom: 15px;
-    }
-    li {
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-    blockquote {
-      border-right: 5px solid #007bff;
-      padding-right: 15px;
-      margin: 20px 0;
-      font-style: italic;
+    p, li {
+      margin-bottom: 1.2rem;
+      font-size: 1.15rem;
       color: #555;
     }
-    .back-to-articles {
-      display: block;
-      margin-top: 40px;
-      text-align: center;
-      font-size: 1.1rem;
+    .table {
+        font-size: 1.1rem;
+    }
+    .table th {
+        background-color: #e8f4fd;
+    }
+    blockquote {
+      border-right: 5px solid #198754;
+      padding-right: 20px;
+      margin: 30px 0;
+      font-style: italic;
+      color: #555;
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .highlight-box {
+      background-color: #e8f4fd;
+      border: 2px dashed #0d6efd;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+    .faq-section .accordion-button {
+        font-weight: bold;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #6c757d;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .back-link:hover {
+      color: #0d6efd;
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://arabeez.space/articles/genius-of-derivational-system.html"
+    },
+    "headline": "عبقرية النظام الاشتقاقي في العربية: كيف تبني ألف كلمة من جذر واحد",
+    "description": "اكتشف عبقرية نظام الاشتقاق في اللغة العربية. تعلم كيف يولد الجذر الثلاثي آلاف الكلمات، وضاعف مفرداتك بجهد أقل مع أمثلة عملية.",
+    "image": "https://arabeez.space/images/arabic-root-system.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Yacine LOTFI"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arabeez.space",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://arabeez.space/icon.svg"
+      }
+    },
+    "datePublished": "2024-01-02",
+    "dateModified": "2024-01-02"
+  }
+  </script>
 </head>
-<body class="bg-light">
+<body>
+
   <div class="container article-container">
-    <a href="../articles.html" class="back-to-articles btn btn-outline-primary">العودة إلى المقالات</a>
-    <h1 class="mb-4">عبقرية النظام الاشتقاقي: تحليل معمق للجذر الثلاثي (فعل) وكيفية توليد آلاف المعاني من أصل واحد</h1>
+    <a href="../articles.html" class="back-link">← العودة إلى المقالات</a>
     
-    <div id="article-image-container" class="mb-4"></div>
+    <h1>عبقرية النظام الاشتقاقي في العربية: كيف تبني ألف كلمة من جذر واحد</h1>
+    
+    <img src="https://images.pexels.com/photos/5428833/pexels-photo-5428833.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="شجرة توضح نظام الاشتقاق في اللغة العربية من جذر واحد" class="img-fluid rounded shadow-sm w-100 mb-4">
 
-    <p>اللغة العربية ليست مجرد وسيلة للتواصل؛ إنها معجزة هندسية. في قلب هذه المعجزة يكمن "الجذر الثلاثي"، وهو نظام رياضي صارم يسمح بتوليد عدد لا نهائي من الكلمات والمعاني من أصل واحد يتكون من ثلاثة أحرف فقط. هذا النظام، المعروف بـ "الاشتقاق"، هو ما يمنح العربية مرونتها الأسطورية وقدرتها على استيعاب مفاهيم العصر الحديث دون الحاجة إلى استعارة كلمات أجنبية.</p>
+    <p class="lead">هل شعرت يومًا بالإحباط وأنت تحاول حفظ قوائم لا تنتهي من المفردات العربية؟ ماذا لو كانت هناك طريقة لفهم "شفرة" اللغة التي تسمح لك بتخمين معنى الكلمات حتى قبل أن تبحث عنها في القاموس؟ هذه الشفرة موجودة، وهي تُعرف بالنظام الاشتقاقي، أو عبقرية الجذر الثلاثي.</p>
 
-    <p>بينما تعتمد اللغات الهندو-أوروبية (مثل الإنجليزية والفرنسية) على إلصاق البادئات واللواحق بجذور صلبة، تعتمد العربية على "قوالب" أو "أوزان" يتم صب الجذر فيها لتغيير المعنى جذريًا. إنه الفرق بين إضافة غرفة لمنزل قائم (الإنجليزية) وبين إعادة تشكيل الطين ليصبح تمثالًا جديدًا تمامًا (العربية).</p>
-
-    <h2>الشيفرة الوراثية للغة: الجذر (ف-ع-ل)</h2>
-
-    <p>لفهم هذا النظام، يجب أن نتخيل الجذر الثلاثي كحمض نووي (DNA) للكلمة. لنأخذ الجذر <strong>ك-ت-ب</strong> (K-T-B) كمثال كلاسيكي. هذا الجذر يحمل المعنى المجرد لـ "الكتابة" أو "التدوين". لكنه في حد ذاته ليس كلمة؛ إنه مفهوم خام.</p>
-
-    <p>لتحويل هذا المفهوم إلى كلمات، نضعه في "أوزان" (Patterns). كل وزن له وظيفة دلالية محددة:</p>
-
+    <h2>ما هو الجذر الثلاثي؟ العقل المنظم للغة</h2>
+    <p>تخيل أن اللغة العربية مثل مدينة ضخمة، وكل عائلة في هذه المدينة لها "اسم عائلة" مكون من ثلاثة حروف. هذا هو <strong>الجذر</strong>. يحمل هذا الجذر فكرة أو مفهومًا أساسيًا. كل أفراد العائلة (الكلمات) يشتركون في هذا المفهوم، لكن لكل منهم "اسم أول" (يُعرف بالوزن أو القالب) يحدد وظيفته ودوره في المجتمع.</p>
+    <p>لنأخذ أشهر مثال، الجذر <strong>(ك - ت - ب)</strong>، الذي يحمل فكرة "الكتابة".</p>
     <ul>
-        <li><strong>فَعَلَ (Fa'ala):</strong> الصيغة الأساسية للفعل الماضي. -> <em>كَتَبَ</em> (هو كتب).</li>
-        <li><strong>فَاعِل (Fa'il):</strong> اسم الفاعل (الشخص الذي يقوم بالفعل). -> <em>كَاتِب</em> (شخص يكتب/مؤلف).</li>
-        <li><strong>مَفْعُول (Maf'ul):</strong> اسم المفعول (الشيء الذي وقع عليه الفعل). -> <em>مَكْتُوب</em> (رسالة/شيء كُتب).</li>
-        <li><strong>مَفْعَل (Maf'al):</strong> اسم المكان (المكان الذي يحدث فيه الفعل). -> <em>مَكْتَب</em> (مكان للكتابة/طاولة).</li>
-        <li><strong>مَفْعَلَة (Maf'ala):</strong> اسم مكان مخصص أو كثرة. -> <em>مَكْتَبَة</em> (مكان مليء بالكتب).</li>
-        <li><strong>فِعَال (Fi'al):</strong> اسم الآلة أو الجمع. -> <em>كِتَاب</em> (الشيء الذي يُكتب فيه).</li>
-        <li><strong>مُفَاعَلَة (Mufa'ala):</strong> المشاركة في الفعل. -> <em>مُكَاتَبَة</em> (مراسلة بين شخصين).</li>
-        <li><strong>اسْتِفْعَال (Istif'al):</strong> طلب الفعل. -> <em>اسْتِكْتَاب</em> (طلب الكتابة من شخص ما).</li>
+      <li><strong>كَتَبَ:</strong> (فَعَلَ) - هو الفعل الماضي، الحدث نفسه.</li>
+      <li><strong>يَكْتُبُ:</strong> (يَفْعُلُ) - الفعل المضارع، الحدث الآن.</li>
+      <li><strong>كَاتِب:</strong> (فَاعِل) - اسم الفاعل، الشخص الذي يقوم بالكتابة.</li>
+      <li><strong>مَكْتُوب:</strong> (مَفْعُول) - اسم المفعول، الشيء الذي تمت كتابته (الرسالة).</li>
+      <li><strong>كِتَاب:</strong> (فِعَال) - الشيء المستخدم للكتابة أو نتاجها.</li>
+      <li><strong>مَكْتَب:</strong> (مَفْعَل) - اسم المكان، مكان الكتابة.</li>
+      <li><strong>مَكْتَبَة:</strong> (مَفْعَلَة) - مكان يحتوي على الكثير من الكتب.</li>
     </ul>
+    <p>بمجرد فهمك للجذر (ك-ت-ب) وفهمك لهذه القوالب (الأوزان)، يمكنك الآن أن تطبق نفس المنطق على جذر آخر مثل <strong>(د - ر - س)</strong> الذي يعني "الدراسة"، وستجد: دَرَسَ، يَدرُسُ، دَارِس، مَدْرُوس، دَرْس، مَدْرَسَة... لقد ضاعفت مفرداتك دون حفظ إضافي!</p>
 
-    <p>من ثلاثة أحرف فقط، قمنا ببناء عالم كامل: الشخص، الفعل، النتيجة، المكان، الأداة، والتفاعل الاجتماعي. هذا الاقتصاد اللغوي هو ما يجعل القواميس العربية فريدة؛ فهي مرتبة حسب الجذور، لا حسب الترتيب الأبجدي للكلمات المشتقة.</p>
+    <h2>الأوزان (Patterns): القوالب السحرية لصناعة الكلمات</h2>
+    <p>الأوزان ليست عشوائية، بل لكل منها وظيفة محددة غالبًا. إليك بعض الأوزان الشائعة التي ستفتح لك أبواب الفهم:</p>
+    <div class="table-responsive">
+        <table class="table table-bordered text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>الوزن (القالب)</th>
+                    <th>الوظيفة الغالبة</th>
+                    <th>مثال من (ع-ل-م)</th>
+                    <th>المعنى</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>فَاعِل</td>
+                    <td>اسم الفاعل (الذي يقوم بالفعل)</td>
+                    <td><strong>عَالِم</strong></td>
+                    <td>الشخص الذي يعلم</td>
+                </tr>
+                <tr>
+                    <td>مَفْعُول</td>
+                    <td>اسم المفعول (الذي وقع عليه الفعل)</td>
+                    <td><strong>مَعْلُوم</strong></td>
+                    <td>الشيء الذي تم علمه</td>
+                </tr>
+                <tr>
+                    <td>مَفْعَل / مَفْعَلَة</td>
+                    <td>اسم المكان أو الزمان</td>
+                    <td><strong>مَعْلَم</strong></td>
+                    <td>مكان له علامة مميزة</td>
+                </tr>
+                <tr>
+                    <td>تَفْعِيل</td>
+                    <td>مصدر الفعل (جعل شخصًا يفعل)</td>
+                    <td><strong>تَعْلِيم</strong></td>
+                    <td>عملية جعل الآخرين يعلمون</td>
+                </tr>
+                <tr>
+                    <td>مِفْعَال</td>
+                    <td>اسم الآلة (الأداة المستخدمة)</td>
+                    <td><strong>مِعْلَام</strong></td>
+                    <td>أداة كثيرة الإعلام (نادر)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <h2>الأوزان العشرة: خريطة المعاني الدقيقة</h2>
+    <div class="highlight-box">
+        <h3>تطبيق عملي مع Arabeez.space:</h3>
+        <p>عندما تلعب <strong>لعبة ترتيب الحروف</strong>، لا تركز فقط على تكوين الكلمة الصحيحة. بعد أن تكوّن كلمة "كاتب"، فكر: ما هو الجذر؟ (ك-ت-ب). هل يمكنك تكوين كلمة "مكتب" بنفس الحروف؟ هذا التمرين العقلي يحول اللعبة من تمرين إملائي إلى درس عميق في الصرف والاشتقاق.</p>
+        <img src="https://arabeez.space/images/word-hunter-same-root.jpg" alt="لعبة صائد الكلمات على Arabeez.space تظهر كلمات من نفس الجذر" class="img-fluid rounded mt-3">
+    </div>
 
-    <p>تتجلى عبقرية النظام بشكل أكبر في "أوزان الفعل المزيد". هناك عشرة أوزان رئيسية (I-X) يستخدمها المستشرقون واللغويون لتصنيف الأفعال. كل وزن يضيف "نكهة" دلالية محددة للجذر الأصلي.</p>
+    <h2>قصة نجاح: كيف تغلب أليكس على حاجز المفردات</h2>
+    <blockquote>
+      "أليكس، طالب جامعي يدرس العلاقات الدولية، كان يشعر باليأس من تعلم العربية. كان يحفظ 50 كلمة كل أسبوع، ثم ينساها في الأسبوع التالي. عندما شرح له أستاذه نظام الجذر، كانت تلك 'لحظة التجلي'. بدأ أليكس في استخدام قاموس هانز فير للجذور بدلاً من جوجل، وبدأ يرى الروابط بين الكلمات. يقول أليكس: 'فجأة، لم أعد أرى كلمات معزولة، بل عائلات من المعاني. كلمة 'استقبال' لم تعد كلمة غريبة، بل أصبحت مرتبطة بفعل 'قَبِلَ' ومفهوم 'القدوم'. لقد تغير كل شيء'."
+    </blockquote>
 
-    <p>لنطبق ذلك على الجذر <strong>ع-ل-م</strong> ('A-L-M)، الذي يعني "العلم" أو "المعرفة":</p>
+    <h2>كيف تبدأ في التفكير بالجذور؟</h2>
+    <ol>
+        <li><strong>ابدأ بالشك:</strong> كلما رأيت كلمة جديدة، اسأل نفسك: ما هي الحروف الثلاثة التي تبدو أساسية هنا؟ غالبًا ما تكون الحروف الزائدة هي الألف والواو والياء والتاء والميم والنون.</li>
+        <li><strong>استخدم قاموسًا جذريًا:</strong> قاموس "Hans Wehr Dictionary of Modern Written Arabic" هو الأداة الأقوى للمتعلم الجاد. تعلم كيفية استخدامه سيغير طريقة دراستك.</li>
+        <li><strong>العب بذكاء:</strong> في <strong>Arabeez.space</strong>، عند عرض الكلمات والجمل المتعلقة بحرف ما، حاول أن تجد كلمات أخرى من نفس الجذر. إذا رأيت كلمة "مدرسة"، فهل يمكنك تذكر كلمة "درس" أو "دارس"؟</li>
+    </ol>
 
-    <h3>الوزن الأول (فَعَلَ - Form I): المعنى الأساسي</h3>
-    <p><em>عَلِمَ</em> (Alima): هو عرف/أدرك.</p>
+    <h2>أسئلة شائعة (FAQ)</h2>
+    <div class="accordion faq-section" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              هل كل الكلمات العربية مبنية على جذر ثلاثي؟
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              الغالبية العظمى من الكلمات (أكثر من 80%) تعود إلى جذور ثلاثية. هناك أيضًا جذور رباعية (مثل 'ترجم'، 'زلزل')، وهي أقل شيوعًا ولكنها موجودة. بعض الكلمات القليلة (مثل أسماء الإشارة والضمائر) لا تتبع هذا النظام.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              كيف يمكنني العثور على جذر الكلمة كمبتدئ؟
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              في البداية، الأمر يحتاج إلى تخمين وتدريب. القاعدة العامة هي البحث عن ثلاثة حروف ساكنة أساسية. تجاهل الحركات، الألف والواو والياء في وسط الكلمة غالبًا ما تكون زائدة، وكذلك التاء في البداية أو الميم. مع الوقت والتعرض للغة، ستطور "حسًا" لغويًا للتعرف على الجذر.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                هل يجب أن أحفظ كل الأوزان؟
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                لا، على الإطلاق. ابدأ بالأوزان العشرة الأكثر شيوعًا (مثل فاعل، مفعول، فعال، إلخ). ستتعلم الباقي بشكل طبيعي من خلال القراءة والاستماع. الهدف ليس حفظ القواعد، بل التعرف على الأنماط.
+              </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                كيف يساعدني Arabeez.space في تعلم الجذور؟
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                من خلال عرض الكلمات والجمل المرتبطة بكل حرف، فإنك تتعرض بشكل طبيعي لعائلات الكلمات. ألعاب مثل "صائد الكلمات" و "ترتيب الحروف" تجبر عقلك على تحليل بنية الكلمة والتعرف على الحروف الأساسية (الجذر) ضمن سياق ممتع.
+              </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                هل نظام الجذر فريد من نوعه في اللغة العربية؟
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                لا، هو سمة مميزة للغات السامية، بما في ذلك العبرية والآرامية. ومع ذلك، يعتبر النظام في اللغة العربية هو الأكثر تطورًا واتساقًا، مما يجعله أداة قوية بشكل لا يصدق بمجرد فهمه.
+              </div>
+            </div>
+        </div>
+    </div>
 
-    <h3>الوزن الثاني (فَعَّلَ - Form II): التعدية والتكثير</h3>
-    <p>يضيف الشدة (Doubling) على الحرف الثاني معنى "جعل شخصًا آخر يقوم بالفعل" أو "القيام بالفعل بكثافة".<br>
-    <em>عَلَّمَ</em> (Allama): هو درّس (جعل شخصًا آخر يعلم).</p>
-
-    <h3>الوزن الرابع (أَفْعَلَ - Form IV): التعدية السببية</h3>
-    <p>يشبه الوزن الثاني، لكنه غالبًا ما يكون لمرة واحدة أو بشكل فوري.<br>
-    <em>أَعْلَمَ</em> (A'lama): هو أخبر/أشعر (أعطى معلومة).</p>
-
-    <h3>الوزن الخامس (تَفَعَّلَ - Form V): المطاوعة والتكلف</h3>
-    <p>غالبًا ما يكون نتيجة للوزن الثاني. يعكس الجهد المبذول لاكتساب الصفة.<br>
-    <em>تَعَلَّمَ</em> (Ta'allama): هو اكتسب المعرفة (نتيجة للتعليم).</p>
-
-    <h3>الوزن العاشر (اسْتَفْعَلَ - Form X): الطلب أو الاعتقاد</h3>
-    <p>يعني طلب أصل الفعل أو اعتقاد وجود الصفة.<br>
-    <em>اسْتَعْلَمَ</em> (Ista'lama): هو استفسر (طلب العلم).</p>
-
-    <p>تخيل القوة التعبيرية هنا: الفرق بين "درّس" (علّم) و"تعلّم" و"استعلم" ليس بحاجة لكلمات جديدة، بل مجرد تغيير في الموسيقى الداخلية للكلمة.</p>
-
-    <h2>الاشتقاق الأكبر: عندما تتجاوز اللغة المنطق</h2>
-
-    <p>يذهب ابن جني، عبقري اللغة العربية في القرن الرابع الهجري، إلى أبعد من ذلك بنظرية "الاشتقاق الأكبر". يقترح أن أي تبديل في ترتيب أحرف الجذر الثلاثي يظل يحمل "رائحة" المعنى العام.</p>
-
-    <p>لنأخذ أحرف <strong>(ج - ب - ر)</strong>:</p>
-    <ul>
-        <li><em>جَبَرَ</em>: القوة والإصلاح (جبر العظم).</li>
-        <li><em>بُرْج</em>: القوة والارتفاع.</li>
-        <li><em>رَجَب</em>: التعظيم (شهر رجب).</li>
-    </ul>
-    <p>كل تقليبات هذه الأحرف تدور حول معنى "القوة" و"الشدة" و"العظمة". هذا يشير إلى أن اللغة العربية ليست اعتباطية، بل هناك علاقة فيزيائية وصوتية بين الحرف والمعنى.</p>
-
-    <h2>توليد المصطلحات الحديثة: الكمبيوتر والهاتف</h2>
-
-    <p>كيف تتعامل العربية مع التكنولوجيا؟ بدلاً من استعارة كلمة "Computer"، بحث اللغويون عن جذر يعني "الحساب". وجدوا <strong>ح-س-ب</strong>. وضعوه في وزن الآلة (فَاعُول)، فنتج <strong>حَاسُوب</strong>.</p>
-
-    <p>للكلمة "Telephone"، بحثوا عن جذر يعني "نادى من بعيد". وجدوا <strong>ه-ت-ف</strong>. وضعوه في وزن الآلة (مِفْعَل) أو الاسم، فنتج <strong>هَاتِف</strong>.</p>
-
-    <p>حتى في السياسة، كلمة "Republic" (الجمهورية) مشتقة من الجذر <strong>ج-م-ه-ر</strong> (الجمهور/الكثرة)، بإضافة "ياء النسبة" والتاء المربوطة للمصدر الصناعي، لتصبح <strong>جُمْهُورِيَّة</strong>.</p>
-
-    <h2>الخلاصة: لغة حية تتنفس</h2>
-
-    <p>النظام الاشتقاقي ليس مجرد قواعد نحوية جافة؛ إنه محرك حيوي يجعل اللغة العربية كائنًا يتنفس وينمو. إنه يسمح للمتحدث العربي بأن يكون مهندسًا لغويًا، يبني كلمات جديدة لم يسمعها من قبل ويفهمها الآخرون فورًا لأنهم يملكون نفس "المخطط الهندسي" في عقولهم.</p>
-
-    <p>عندما تتعلم جذرًا واحدًا، أنت لا تتعلم كلمة واحدة. أنت تفتح مفتاحًا لغرفة كنز تحتوي على عشرات الكلمات. تعلم 50 جذرًا، وستملك مفاتيح لـ 500 كلمة. هذه هي الكفاءة، وهذه هي عبقرية اللغة العربية.</p>
+    <h2>الخلاصة: من الحفظ إلى الفهم</h2>
+    <p>فهم نظام الجذر والوزن هو النقلة النوعية التي تحول المتعلم من "حافظ للكلمات" إلى "محلل للغة". إنه يقلل من العبء على الذاكرة ويزيد من قدرتك على الفهم والاستنتاج. في المرة القادمة التي تواجه فيها كلمة جديدة، لا تسارع إلى القاموس. توقف لحظة، وحاول تفكيكها إلى جذرها وقالبها. قد تفاجئك قدرتك على فهم المعنى بنفسك.</p>
 
     <a href="../articles.html" class="back-to-articles btn btn-outline-primary">العودة إلى المقالات</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <script src="../js/pexels.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      fetchPexelsImages('arabic calligraphy roots').then(function(images) {
-        if (images && images.length > 0) {
-          const container = document.getElementById('article-image-container');
-          const img = document.createElement('img');
-          img.src = images[0].src.large;
-          img.alt = images[0].alt;
-          img.className = 'img-fluid rounded shadow-sm w-100';
-          container.appendChild(img);
-        }
-      });
-    });
-  </script>
 </body>
 </html>

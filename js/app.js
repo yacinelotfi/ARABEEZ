@@ -101,6 +101,40 @@ const letterPhrases = {
   'ي': ['يَدٌ تَرْسُمُ', 'يَمَامَةٌ تَطِيرُ', 'يَوْمٌ سَعِيدٌ', 'يَاسَمِينٌ عَطِرٌ']
 };
 
+// --- Cookie Utility Functions ---
+
+/**
+ * Sets a cookie with the given name, value, and expiration in days.
+ * @param {string} name - The name of the cookie.
+ * @param {string} value - The value of the cookie.
+ * @param {number} days - The number of days until the cookie expires.
+ */
+function setCookie(name, value, days) {
+  let expires = "";
+  if (days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+/**
+ * Gets the value of a cookie by name.
+ * @param {string} name - The name of the cookie.
+ * @returns {string|null} The value of the cookie, or null if not found.
+ */
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
 // --- State Variables ---
 let currentLetter = ''; // The currently selected letter for activities
 let progressMap = new Map(); // Tracks completed actions (letter-action)
@@ -109,7 +143,16 @@ const totalActions = arabicLetters.length * 9; // 3 harakat + 3 tanween + 3 long
 
 // Audio player element and speech setting
 const audio = document.getElementById('audioPlayer'); // Assume exists in HTML: <audio id="audioPlayer"></audio>
-let isSpeechEnabled = localStorage.getItem('speechEnabled') !== 'false'; // Default to true
+
+// Initialize speech setting from cookie first, then localStorage, then default
+let isSpeechEnabled = true;
+const cookieSpeech = getCookie('speech_enabled');
+if (cookieSpeech !== null) {
+  isSpeechEnabled = cookieSpeech === 'true';
+} else {
+  isSpeechEnabled = localStorage.getItem('speechEnabled') !== 'false';
+}
+
 let isWordImageEnabled = localStorage.getItem('wordImageEnabled') !== 'false'; // Default to true
 
 // State for Word/Phrase Modals
@@ -222,15 +265,14 @@ const translations = {
     errorSaveProgress: 'فشل حفظ التقدم.',
     manualShare: 'يرجى نسخ هذا الرابط: {url}',
     shareError: 'تعذر مشاركة الرابط أو نسخه.',
-    errorTutorial: 'ميزة الدليل التعليمي غير متاحة.',
     correctWas: 'الصحيح كان:',
-    startTutorial: 'دليل الاستخدام',
     errorNoWordsForGame: 'خطأ: لا توجد كلمات متاحة لهذه اللعبة.',
     resetQuiz: 'إعادة الاختبار',
     hideImage: 'إخفاء الصورة',
     showImage: 'إظهار الصورة',
     imagesDisabled: 'الصور معطلة حاليًا',
     arrangementHint: 'تلميح: تبدأ بـ "{first}" وتنتهي بـ "{last}"',
+    welcomeBack: 'مرحبًا بعودتك! هل تود متابعة تعلم حرف {letter}؟',
     
     // New translations for static content
     mainControlsTitle: 'استكشف الأحرف العربية مع الحركات',
@@ -256,21 +298,7 @@ const translations = {
     gameTitleHunter: 'لعبة صائد الكلمات (showWordHunterGame)',
     gameDescHunter: 'لعبة سريعة ومليئة بالتحدي، حيث يجب على الطفل العثور على الكلمات التي تحتوي على حرف معين خلال فترة زمنية محدودة. هذه اللعبة تطور سرعة القراءة والقدرة على تمييز الحروف داخل الكلمات.',
     gameTitleSyllable: 'لعبة المقطع الناقص (showMissingSyllableGame)',
-    gameDescSyllable: 'في هذه اللعبة، تُعرض كلمة ينقصها مقطع صوتي، وعلى الطفل اختيار المقطع الصحيح لإكمال الكلمة. تهدف هذه اللعبة إلى تعليم الأطفال عن المقاطع الصوتية وكيفية بناء الكلمات منها.',
-
-    tutorial: {
-      introTitle: 'مرحباً!',
-      languageTitle: 'اللغة',
-      lettersTitle: 'الأحرف',
-      activitiesTitle: 'الأنشطة',
-      quizTitle: 'الاختبار',
-      intro: 'مرحبًا! هذا دليل تفاعلي لتعليمك كيفية استخدام التطبيق.',
-      language: 'اختر اللغة التي تفضلها (العربية أو الإنجليزية) للتطبيق.',
-      letters: 'اضغط على أي حرف لاستكشاف الحركات والألعاب المتعلقة به.',
-      harakat: 'اختر حركة لتطبيقها على الحرف المحدد.',
-      games: 'جرب الألعاب التعليمية المختلفة لتعلم الحروف والكلمات!',
-      quiz: 'اختبر معرفتك بالأحرف والكلمات والجمل مع الاختبار العام.'
-    }
+    gameDescSyllable: 'في هذه اللعبة، تُعرض كلمة ينقصها مقطع صوتي، وعلى الطفل اختيار المقطع الصحيح لإكمال الكلمة. تهدف هذه اللعبة إلى تعليم الأطفال عن المقاطع الصوتية وكيفية بناء الكلمات منها.'
   },
   en: {
     appTitle: 'Learn Arabic Letters with Harakat',
@@ -320,12 +348,11 @@ const translations = {
     hideImage: 'Hide Image',
     showImage: 'Show Image',
     imagesDisabled: 'Images are currently disabled',
-    errorTutorial: 'Tutorial feature is unavailable.',
     correctWas: 'Correct was:',
-    startTutorial: 'User Guide',
     errorNoWordsForGame: 'Error: No words available for this game.',
     resetQuiz: 'Restart Quiz',
     arrangementHint: 'Hint: Starts with "{first}", ends with "{last}"',
+    welcomeBack: 'Welcome back! Continue learning {letter}?',
     
     // New translations for static content
     mainControlsTitle: 'Explore Arabic Letters with Harakat',
@@ -351,21 +378,7 @@ const translations = {
     gameTitleHunter: 'Word Hunter Game (showWordHunterGame)',
     gameDescHunter: 'A fast-paced and challenging game where the child must find words containing a specific letter within a limited time. This game develops reading speed and the ability to distinguish letters within words.',
     gameTitleSyllable: 'Missing Syllable Game (showMissingSyllableGame)',
-    gameDescSyllable: 'In this game, a word with a missing syllable is displayed, and the child must choose the correct syllable to complete the word. This game aims to teach kids about syllables and how to build words from them.',
-
-    tutorial: {
-      introTitle: 'Welcome!',
-      languageTitle: 'Language',
-      lettersTitle: 'Letters',
-      activitiesTitle: 'Activities',
-      quizTitle: 'Quiz',
-      intro: 'Welcome! This is an interactive guide to teach you how to use the app.',
-      language: 'Choose your preferred language (Arabic or English) for the app.',
-      letters: 'Click on any letter to explore its harakat and related games.',
-      harakat: 'Select a haraka to apply to the chosen letter.',
-      games: 'Try out various educational games to learn letters and words!',
-      quiz: 'Test your knowledge of letters, words, and phrases with the global quiz.'
-    }
+    gameDescSyllable: 'In this game, a word with a missing syllable is displayed, and the child must choose the correct syllable to complete the word. This game aims to teach kids about syllables and how to build words from them.'
   }
 };
 
@@ -721,6 +734,7 @@ function sanitizeInput(input) {
 function toggleSpeech() {
   isSpeechEnabled = !isSpeechEnabled;
   localStorage.setItem('speechEnabled', String(isSpeechEnabled));
+  setCookie('speech_enabled', String(isSpeechEnabled), 365); // Save to cookie for 365 days
   updateToggleSpeechButton();
   if (!isSpeechEnabled) {
     // Stop any ongoing speech synthesis or audio playback
@@ -813,8 +827,6 @@ function switchLanguage(lang) {
     if (quizBtn) quizBtn.textContent = t('startQuiz');
     const shareBtn = document.querySelector('button[onclick="shareSite()"]');
     if (shareBtn) shareBtn.textContent = t('shareSite');
-    const tutorialBtn = document.querySelector('button[onclick="startTutorial()"]');
-    if (tutorialBtn) tutorialBtn.textContent = t('startTutorial', {}, 'Start Tutorial');
 
     // Update new static content elements
     const mainControlsTitle = document.getElementById('main-controls-title');
@@ -942,6 +954,24 @@ function createLetters(retryCount = 0) {
 
         lettersContainer.setAttribute('aria-busy', 'false');
 
+        // Check for last viewed letter cookie and highlight
+        const lastViewedLetter = getCookie('last_viewed_letter');
+        if (lastViewedLetter) {
+          const lastLetterCard = document.getElementById(`letter-${lastViewedLetter}`);
+          if (lastLetterCard) {
+            lastLetterCard.classList.add('border-warning', 'border-4'); // Highlight
+            // Show welcome back toast only once per session or if not shown recently?
+            // For now, show it whenever letters are created if cookie exists (e.g. on load)
+            // To avoid showing it on language switch, we might check a session flag, but user asked for "When user returns"
+            // We can assume createLetters is called on load.
+            // Let's check if we already showed it this session to avoid spamming on lang switch
+            if (!sessionStorage.getItem('welcome_toast_shown')) {
+                showTemporaryMessage(t('welcomeBack', { letter: lastViewedLetter }), 'success', 5000);
+                sessionStorage.setItem('welcome_toast_shown', 'true');
+            }
+          }
+        }
+
         // Retry logic if rendering failed
         if (letterCards.length === 0 && retryCount < 2) {
           console.warn(`Retry ${retryCount + 1}: No letter cards rendered, retrying...`);
@@ -978,6 +1008,8 @@ function handleLetterKeydown(event, letter) {
  */
 function showModal(letter) {
   currentLetter = letter;
+  setCookie('last_viewed_letter', letter, 30); // Save to cookie for 30 days
+
   if (selectedLetterElement) {
     selectedLetterElement.textContent = letter;
     selectedLetterElement.lang = 'ar';
@@ -4016,12 +4048,6 @@ function runInitialSetup() {
       showTemporaryMessage(errorMsg, 'warning');
     }
   });
-
-  // Check if tutorial button exists
-  const tutorialButton = document.querySelector('button[onclick="startTutorial()"]');
-  if (!tutorialButton) {
-    console.warn("Tutorial button not found. Tutorial feature might be inaccessible.");
-  }
 
   console.log("Application initialized successfully.");
 }

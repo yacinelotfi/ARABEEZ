@@ -852,179 +852,6 @@ footer a:hover::after {
   }
 }
 
-/* Intro.js Customizations */
-.introjs-tooltip {
-  font-family: 'Baloo Bhaijaan 2', 'Kufam', 'Amiri', sans-serif;
-  direction: rtl; /* Default to RTL, JS should handle LTR if needed */
-  text-align: right;
-  background-color: #FFF8E1; /* Match updated modal background */
-  color: #FF4081; /* Match updated text color */
-  border: 4px solid #FF9800; /* Orange border */
-  border-radius: 20px; /* Rounder corners */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 0 15px rgba(255, 152, 0, 0.1); /* Enhanced shadow */
-  padding: 1.8rem; /* More padding */
-  max-width: 380px; /* Slightly wider */
-  animation: tooltipBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
-}
-
-@keyframes tooltipBounce {
-  from {
-    opacity: 0;
-    transform: scale(0.8) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.introjs-tooltip::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, #FF9800, #FFEB3B, #FF9800);
-  background-size: 200% 100%;
-  animation: rainbow 3s linear infinite;
-}
-
-.introjs-tooltip-header {
-  color: #0277bd; /* Primary color for header */
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #eee;
-}
-
-.introjs-tooltiptext {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.introjs-button {
-  font-family: 'Baloo Bhaijaan 2', 'Kufam', 'Amiri', sans-serif;
-  border-radius: 50px; /* Match button style */
-  padding: 0.6rem 1.4rem; /* Match updated button style */
-  font-weight: bold;
-  font-size: 1.05rem;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
-  border: none;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-transform: none;
-  margin: 0 5px; /* Spacing between buttons */
-  color: white; /* Default text color */
-  position: relative;
-  overflow: hidden;
-}
-
-.introjs-button::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-  opacity: 0;
-  transform: scale(0.5);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.introjs-button:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.15);
-}
-
-.introjs-button:hover::after {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.introjs-button:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.introjs-button:focus {
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1), 0 0 0 0.25rem rgba(3, 169, 244, 0.5);
-}
-
-.introjs-skipbutton {
-  background-color: #9C27B0; /* Purple */
-  background-image: linear-gradient(45deg, #9C27B0, #8E24AA);
-}
-.introjs-skipbutton:hover {
-  background-color: #7B1FA2;
-  background-image: linear-gradient(45deg, #8E24AA, #7B1FA2);
-}
-
-.introjs-prevbutton, .introjs-nextbutton {
-  background-color: #FF9800; /* Orange */
-  background-image: linear-gradient(45deg, #FF9800, #FB8C00);
-}
-.introjs-prevbutton:hover, .introjs-nextbutton:hover {
-  background-color: #F57C00;
-  background-image: linear-gradient(45deg, #FB8C00, #F57C00);
-}
-
-.introjs-donebutton {
-  background-color: #4CAF50; /* Green */
-  background-image: linear-gradient(45deg, #4CAF50, #43A047);
-}
-.introjs-donebutton:hover {
-  background-color: #388E3C;
-  background-image: linear-gradient(45deg, #43A047, #388E3C);
-}
-
-.introjs-disabled {
-  background-color: #E0E0E0; /* Lighter gray for disabled */
-  background-image: none;
-  color: #9E9E9E;
-  cursor: not-allowed;
-  opacity: 0.8;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
-  border: 2px dashed #BDBDBD;
-}
-
-.introjs-disabled:hover {
-  transform: none;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
-  background-color: #E0E0E0;
-  background-image: none;
-  border: 2px dashed #BDBDBD;
-}
-
-.introjs-progress {
-  margin-top: 1.2rem;
-  background-color: rgba(255, 255, 255, 0.5); /* Lighter background */
-  border-radius: 50px;
-  height: 10px;
-  border: 2px solid #FF9800; /* Orange border */
-  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.introjs-progressbar {
-  background-image: linear-gradient(45deg, #FF9800, #FFEB3B, #FF9800); /* Gradient progress */
-  background-size: 200% 100%;
-  animation: rainbow 3s linear infinite;
-  border-radius: 50px;
-  height: 100%;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.introjs-arrow.top { border-bottom-color: #FFF8E1; }
-.introjs-arrow.right { border-left-color: #FFF8E1; }
-.introjs-arrow.bottom { border-top-color: #FFF8E1; }
-.introjs-arrow.left { border-right-color: #FFF8E1; }
-
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   body {
@@ -1134,6 +961,34 @@ footer a:hover::after {
   background-color: #333;
   color: #fff;
   padding: 1rem;
+  text-align: center;
   z-index: 9999;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
+
+.cookie-banner p {
+  margin: 0 0 0.5rem 0;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.cookie-banner a {
+  color: #FFEB3B;
+  text-decoration: underline;
+}
+
+.cookie-banner button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cookie-banner button:hover {
+  background-color: #388E3C;
 }
